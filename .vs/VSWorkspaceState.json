@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Actividad Python API",
+    "\\AplicacionCliente.API",
+    "\\AplicacionCliente.API\\AplicacionCliente",
+    "\\AplicacionCliente.API\\AplicacionCliente\\Controllers",
+    "\\AplicacionCliente.API\\AplicacionCliente\\Models"
+  ],
+  "SelectedNode": "\\AplicacionCliente.API\\AplicacionCliente\\Models\\ClientesContext.cs",
+  "PreviewInSolutionExplorer": false
+}
