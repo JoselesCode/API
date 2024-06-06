@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AplicacionProducto.Controllers
 {
-    [Route("api/Clientes")]
+    [Route("api/Productos")]
     [ApiController]
     public class ProductoControllers : ControllerBase
     {
@@ -17,43 +17,40 @@ namespace AplicacionProducto.Controllers
             _context = context;
         }
 
-        // GET: api/Clientes
+        // GET: api/Productos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Clientes>>> GetClientes()
+        public async Task<ActionResult<IEnumerable<Productos>>> GetProductos()
         {
-            return await _context.Clientes.ToListAsync();
+            return await _context.Productos.ToListAsync();
         }
 
         // GET: api/Clientes/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Clientes>> GetClientes(int id)
+        public async Task<ActionResult<Clientes>> GetProductos(int id)
         {
             //var resultado = lista.Where(x => x.id == id);
             // var lista 
-            var clientes = await _context.Clientes.FindAsync(id);
+            var producto = await _context.Productos.FindAsync(id);
 
-            if (clientes == null)
+            if (producto == null)
             {
                 return NotFound();
             }
 
-            return clientes; // lista.FirstorDefault(x => x.id == id);
+            return producto; // lista.FirstorDefault(x => x.id == id);
         }
 
-        // PUT: api/Clientes/5
+        // PUT: api/Productos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutClientes(int id, Clientes clientes)
+        public async Task<IActionResult> PutProductos(int id, Productos producto)
         {
-
-
-
-            if (id != clientes.Id)
+            if (id != producto.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(clientes).State = EntityState.Modified;
+            _context.Entry(producto).State = EntityState.Modified;
 
             try
             {
@@ -61,7 +58,7 @@ namespace AplicacionProducto.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ClientesExists(id))
+                if (!ProductosExists(id))
                 {
                     return NotFound();
                 }
@@ -74,39 +71,38 @@ namespace AplicacionProducto.Controllers
             return NoContent();
         }
 
-        // POST: api/Clientes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        // POST: api/Productos
         [HttpPost]
-        public async Task<ActionResult<Clientes>> PostClientes(Clientes clientes)
+        public async Task<ActionResult<Productos>> PostProductos(Productos producto)
         {
-            _context.Clientes.Add(clientes);
+            _context.Productos.Add(producto);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetClientes", new { id = clientes.Id }, clientes);
+            return CreatedAtAction("GetProductos", new { id = producto.Id }, producto);
         }
 
-        // DELETE: api/Clientes/5
+        // DELETE: api/Productos/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteClientes(int id)
+        public async Task<IActionResult> DeleteProductos(int id)
         {
 
-            //Cliente seleccionar = lista.FirstorDefault( x => x.id ==x);
+            //Productos seleccionar = lista.FirstorDefault( x => x.id ==x);
             // seleccionar = value;
-            var clientes = await _context.Clientes.FindAsync(id);
-            if (clientes == null)
+            var producto = await _context.Productos.FindAsync(id);
+            if (producto == null)
             {
                 return NotFound();
             }
 
-            _context.Clientes.Remove(clientes);
+            _context.Productos.Remove(producto);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool ClientesExists(int id)
+        private bool ProductosExists(int id)
         {
-            return _context.Clientes.Any(e => e.Id == id);
+            return _context.Productos.Any(e => e.Id == id);
         }
     }
 }
