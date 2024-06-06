@@ -40,7 +40,7 @@ class Factura(Resource):
         if(cliente_response.status_code == 200):
             cliente_json = cliente_response.json()
 
-            objRespuesta["id_cliente"] = cliente_json["id"]
+            objRespuesta["id_cliente"] = cliente.json["id"]
             objRespuesta["id_producto"] = json["producto_id"]
             objRespuesta["cantidad"] = json["cantidad"]
             objRespuesta["precio"] = 320
