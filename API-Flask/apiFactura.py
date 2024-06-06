@@ -14,6 +14,8 @@ CORS = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # new Factura() -> #numerocualquiera --> Factura{}
 
 url_cliente = "http://localhost:5000/api/cliente"
+url_producto = "http://localhost:5002/api/Producto"
+url_logistica = "http://localhost:5003/api/StockProducto"
 
 class Factura(Resource):
     def post(self):
@@ -40,15 +42,39 @@ class Factura(Resource):
         if(cliente_response.status_code == 200):
             cliente_json = cliente_response.json()
 
-            objRespuesta["id_cliente"] = cliente.json["id"]
-            objRespuesta["id_producto"] = json["producto_id"]
-            objRespuesta["cantidad"] = json["cantidad"]
-            objRespuesta["precio"] = 320
-            objRespuesta["total_venta"] = objRespuesta["precio"] * json["cantidad"]
-            objRespuesta["nombre_cliente"] = json["razonSocial"] 
-            objRespuesta["direccion_cliente"] = json["direccion"]
+        # Solicitud a la API de Productos (para obtener el precio del producto)
+            producto_response = requests.get(f"{url_producto}/{json_data['producto_id']}")
+            if producto_response.status_code == 200:
+                producto_json = producto_response.json()
 
+        # Solicitud a la API de Logística (para verificar el stock)
+                logistica_response = requests.get(f"{url_logistica}/{json_data['producto_id']}")
+                if logistica_response.status_code == 200:
+                    logistica_json = logistica_response.json()
+        #Verificar Stock
+                    if logistica_json['stock'] >= json_data['cantidad']:
+        #Actualizar datos de boleta
+                        objRespuesta["id_cliente"] = cliente_json["id"]
+                        objRespuesta["id_producto"] = json["producto_id"]
+                        objRespuesta["cantidad"] = json["cantidad"]
+                        objRespuesta["precio"] = producto_json["precio"]
+                        objRespuesta["total_venta"] = objRespuesta["precio"] * json["cantidad"]
+                        objRespuesta["nombre_cliente"] = json["razonSocial"] 
+                        objRespuesta["direccion_cliente"] = json["direccion"]
 
+                        # Actualizar el stock en la API de Logística Stock
+                        requests.put(f"{url_logistica}/{json_data['producto_id']}",
+                        json={'stock': logistica_json['stock'] - json_data['cantidad']})
+                        return objRespuesta
+                    else:
+                        return {"error" : "Stock insuficiente}, 400
+                else:
+                    return {"error" : "API de Logistica no responde"}, 500
+            else:
+                return {"error" : "API de Productos no responde"}, 500
+        else:
+            return {"error" : "API de Clientes no responde"}, 500
+                        
 
         #return { "id_producto" : 5, "cantidad": 10, "id_cliente": 2}
         return objRespuesta
