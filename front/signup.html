@@ -1,0 +1,71 @@
+<!-- EN ESTE DOCUMENTO NO FUNCIONA POR AHORA LA VALIDACION--> 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscibirse</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="img/icon.jpg">
+</head>
+<body>
+    <section class="form-main">
+        <div class="form-content">
+            
+            <h3>Crear una cuenta</h3>
+            <form method="post" action="">
+                <div class="input-box">
+                    <input type="text" placeholder="Nombre Completo" class="input-control" name="name" id='nombre'>
+                </div>
+                <div class="input-box">
+                    <input type="email" placeholder="Email" class="input-control" name="Email" id='Email'>
+                </div>
+                <div class="input-box">
+                    <input type="Password" placeholder="Password" class="input-control" name="password" id = 'Password'>
+                </div>
+                <input type="submit" onclick=' return enviarFormulario()' value="Crear cuenta" class="btn">
+            </form>
+            <p>¿Ya tienes una cuenta? <a href="indexLogin.html" class="gradient-text"> Iniciar sesión</a></p>
+        </div>
+
+    </section>
+    
+    <div id="error"></div>
+
+
+    <script>
+    var nombre = document.getElementById('nombre');
+    var Email = document.getElementById('Email');
+    var password = document.getElementById('Password');
+    var error = document.getElementById('error');
+
+
+    function enviarFormulario(){
+    console.log('Enviando formulario...');
+
+
+    var mensajesError = [];
+
+
+    if(nombre.value === null  || nombre.value === ''){
+       mensajesError.push('Nombre')
+    }
+    if(Email.value === null  || Email.value === ''){
+        mensajesError.push('Email')
+    }
+    if(password.value === null  || password.value === ''){
+        mensajesError.push('Contraseña')
+    }
+
+    if(mensajesError.length > 0){
+        error.innerHTML = "Por favor ingresa los siguientes datos: " + mensajesError.join(', ');
+        return false;
+    }
+
+    return false
+    }
+    </script>
+
+</body>
+</html>

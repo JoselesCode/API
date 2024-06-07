@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesion</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="icon" href="img/icon.jpg">
+</head>
+<body>
+    <section class="form-main">
+        <div class="form-content">
+            
+            <h3>Bienvenido</h3>
+            <form method="post" action="">
+                <div class="input-box">
+                    <input type="email" placeholder="Email" class="input-control" name="Email" id = 'Email'>
+                </div>
+                <div class="input-box">
+                    <input type="password" placeholder="Password" class="input-control" name="password" id = 'Password'>
+                    <div class="input-link">
+                        <a href="recuperarC.html"class="gradient-text">Has olvidado tu contraseña</a><!-- eticketa enlace para redirigir --> 
+                    </div>
+                </div>
+                <input type="submit" onclick=' return enviarFormulario()' value="Iniciar sesion" class="btn">
+                 
+            </form>
+            <p> <a href="index.html" class="gradient-text"> Iniciar como invitado</a></p>
+            <!--<p>¿No tienes una cuenta? <a href="signup.html" class="gradient-text"> Crear cuenta</a></p> eticketa enlace para redirigir (por ahora DESACTIVADA hasta hacer la conexion para validar datos en BD)--> 
+
+        </div>
+
+    </section>
+    <div id="error"></div>
+
+
+    <script src="app.js"></script>
+    
+</body>
+</html>
