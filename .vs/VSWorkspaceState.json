@@ -4,13 +4,12 @@
     "\\AplicacionBodega.API",
     "\\AplicacionBodega.API\\AplicacionBodega",
     "\\AplicacionBodega.API\\AplicacionBodega\\Controllers",
+    "\\AplicacionBodega.API\\AplicacionBodega\\Models",
     "\\AplicacionCliente.API",
     "\\AplicacionCliente.API\\AplicacionCliente",
-    "\\AplicacionCliente.API\\AplicacionCliente\\Models",
-    "\\AplicacionProducto.API\\AplicacionProducto",
-    "\\AplicacionProducto.API\\AplicacionProducto\\Controllers",
-    "\\AplicacionProducto.API\\AplicacionProducto\\Models"
+    "\\AplicacionCliente.API\\AplicacionCliente\\Controllers",
+    "\\AplicacionCliente.API\\AplicacionCliente\\Models"
   ],
-  "SelectedNode": "\\AplicacionBodega.API\\AplicacionBodega\\Controllers\\BodegaController.cs",
+  "SelectedNode": "\\AplicacionBodega.API\\AplicacionBodega.API.sln",
   "PreviewInSolutionExplorer": false
 }

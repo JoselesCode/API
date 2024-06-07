@@ -33,6 +33,11 @@ namespace AplicacionBodega.Controllers
         [HttpPut("{productoId}")]
         public async Task<IActionResult> PutStockProducto(int productoId, [FromBody] int cantidad)
         {
+            if (productoId != updateDto.ProductoId)
+            {
+                return BadRequest("ProductoId en la URL no coincide con el ProductoId en el cuerpo de la solicitud");
+            }
+
             var stock = await _context.StockProductos.FirstOrDefaultAsync(s => s.ProductoId == productoId);
 
             if (stock == null)
