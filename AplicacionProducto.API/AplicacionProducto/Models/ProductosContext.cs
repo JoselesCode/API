@@ -1,18 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using AplicacionProducto.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AplicacionCliente.Models { 
+namespace AplicacionProducto.Models
+{
 
-    public class ClientesContext : DbContext
+    public class ProductosContext : DbContext
     {
-        public ClientesContext(DbContextOptions<ClientesContext> options) : base(options)
+        public ProductosContext(DbContextOptions<ProductosContext> options) : base(options)
         {
         }
 
-        public DbSet<Productos> Clientes { get; set; } = null!;
-    } 
+        public DbSet<Productos> Productos { get; set; } = null!;
+    }
 }
 

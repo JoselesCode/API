@@ -49,8 +49,6 @@ namespace AplicacionCliente.Controllers
         public async Task<IActionResult> PutClientes(int id, Clientes clientes)
         {
 
-
-
             if (id != clientes.Id)
             {
                 return BadRequest();
@@ -78,7 +76,6 @@ namespace AplicacionCliente.Controllers
         }
 
         // POST: api/Clientes
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Clientes>> PostClientes(Clientes clientes)
         {

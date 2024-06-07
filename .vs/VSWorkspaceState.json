@@ -1,12 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Actividad Python API",
+    "\\AplicacionBodega.API",
+    "\\AplicacionBodega.API\\AplicacionBodega",
+    "\\AplicacionBodega.API\\AplicacionBodega\\Controllers",
     "\\AplicacionCliente.API",
     "\\AplicacionCliente.API\\AplicacionCliente",
-    "\\AplicacionCliente.API\\AplicacionCliente\\Controllers",
-    "\\AplicacionCliente.API\\AplicacionCliente\\Models"
+    "\\AplicacionCliente.API\\AplicacionCliente\\Models",
+    "\\AplicacionProducto.API\\AplicacionProducto",
+    "\\AplicacionProducto.API\\AplicacionProducto\\Controllers",
+    "\\AplicacionProducto.API\\AplicacionProducto\\Models"
   ],
-  "SelectedNode": "\\AplicacionCliente.API\\AplicacionCliente\\Models\\ClientesContext.cs",
+  "SelectedNode": "\\AplicacionBodega.API\\AplicacionBodega\\Controllers\\BodegaController.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zZcUxSsahJdTY7mcTfnoRUiW0wDmEvoAxMWvO2zxVsZ4ZanTvnvKW/AgIyKAtashQ29fNPQVOygkMqp0jxPSTg==",
+  "dgSpecHash": "Dft8v+FuSNM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Adm\\Desktop\\PracticaAPI\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj",
+  "projectFilePath": "C:\\Users\\Adm\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Adm\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AplicacionProducto.Models;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +12,9 @@ namespace AplicacionProducto.Controllers
     [ApiController]
     public class ProductoControllers : ControllerBase
     {
-        private readonly ProductoContext _context;
+        private readonly ProductosContext _context;
 
-        public ClientesController(ClientesContext context)
+        public ProductoControllers(ProductosContext context)
         {
             _context = context;
         }
@@ -24,9 +26,9 @@ namespace AplicacionProducto.Controllers
             return await _context.Productos.ToListAsync();
         }
 
-        // GET: api/Clientes/5
+        // GET: api/Productos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Clientes>> GetProductos(int id)
+        public async Task<ActionResult<Productos>> GetProductos(int id)
         {
             //var resultado = lista.Where(x => x.id == id);
             // var lista 
@@ -106,4 +108,4 @@ namespace AplicacionProducto.Controllers
         }
     }
 }
-}
+
