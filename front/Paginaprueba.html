@@ -38,6 +38,26 @@
             margin-top: 0;
         }
     </style>
+    <script>
+        const productos = {
+            1: { descripcion: 'Tarjeta 1000 V-Bucks', valor: 8500 },
+            2: { descripcion: 'Tarjeta 2800 V-Bucks', valor: 16000 },
+            3: { descripcion: 'Tarjeta 5000 V-Bucks', valor: 32000 },
+            4: { descripcion: 'Tarjeta 13500 V-Bucks', valor: 65000 }
+        };
+
+
+        function actualizarValor() {
+            const productoId = document.getElementById('productoId').value;
+            const cantidad = document.getElementById('productoCantidad').value;
+            const valor = document.getElementById('productoValor');
+            if (productoId && productos[productoId] && cantidad) {
+                valor.value = productos[productoId].valor * cantidad;
+            } else {
+                valor.value = '';
+            }
+        }
+    </script>
 </head>
 <body>
     <main>
@@ -56,11 +76,9 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                             </li>
-
                             <li class="nav-item">
                                 <a class="nav-link" aria-current="page" href="#">Nosotros</a>
                             </li>
@@ -74,44 +92,87 @@
         </header>
         <br>
         <br>
+
+        <!-- Contenedor principal -->
+        <div class="container mb-5">
+            <div class="row">
+                <!-- Descripción del producto a la izquierda -->
+                <div class="col-md-6">
+                    <h1>TARJETA DE PAVOS</h1>
+                    <h2>¿QUÉ SON LOS PAVOS?</h2>
+                    <p><strong>Descripción:</strong> La tarjeta de pavos de Fortnite te permite obtener V-Bucks, la moneda virtual del juego, que puedes utilizar para comprar objetos en la tienda de Fortnite, como skins, bailes, pases de batalla y más.</p>
+                    <p>No esperes más y mejora tu experiencia en Fortnite con la tarjeta de pavos.</p>
+                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
+                </div>
+                
+                <!-- Formulario de compra a la derecha -->
+                <div class="col-md-6">
+                    <h2>Formulario de Compra</h2>
+                    <form id="compraForm">
+                        <div class="mb-3">
+                            <label for="productoId" class="form-label">ID Producto</label>
+                            <select class="form-select" id="productoId" required onchange="actualizarDescripcion()">
+                                <option value="">Seleccione un ID</option>
+                                <option value="1">1 - Tarjeta 1000 V-Bucks</option>
+                                <option value="2">2 - Tarjeta 2800 V-Bucks</option>
+                                <option value="3">3 - Tarjeta 5000 V-Bucks</option>
+                                <option value="4">4 - Tarjeta 13500 V-Bucks</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoCantidad" class="form-label">Cantidad</label>
+                            <input type="number" class="form-control" id="productoCantidad" required oninput="actualizarValor()">
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoValor" class="form-label">Valor</label>
+                            <input type="number" class="form-control" id="productoValor" readonly>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Comprar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="container">
             <div class="row">
                 <!-- Texto a la izquierda -->
                 <div class="col-md-6">
                     <h1>TARJETA DE PAVOS</h1>
                     <h2>¿QUÉ SON LOS PAVOS?</h2>
-        <p><strong>Descripción:</strong> La tarjeta de pavos de Fortnite te permite obtener V-Bucks, la moneda virtual del juego, que puedes utilizar para comprar objetos en la tienda de Fortnite, como skins, bailes, pases de batalla y más.</p>
-        <p>No esperes más y mejora tu experiencia en Fortnite con la tarjeta de pavos.</p>
-        <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
-    </section>
-        <hr>
+                    <p><strong>Descripción:</strong> La tarjeta de pavos de Fortnite te permite obtener V-Bucks, la moneda virtual del juego, que puedes utilizar para comprar objetos en la tienda de Fortnite, como skins, bailes, pases de batalla y más.</p>
+                    <p>No esperes más y mejora tu experiencia en Fortnite con la tarjeta de pavos.</p>
+                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
                 </div>
-                 <!-- Carrusel de imágenes -->
- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="img/fornite1.png" class="d-block w-100" alt="Primera imagen"style="max-width: 600px; margin: auto;">
-        </div>
-        <div class="carousel-item">
-            <img src="img/PlayStation-Xbox-PC.jpg" class="d-block w-100" alt="Segunda imagen"style="max-width: 600px; margin: auto;">
-        </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev"style="max-width: 800px; margin: auto;">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next"style="max-width: 800px; margin: auto;">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
-</div>
-<hr>
-<br>
-<br>
+                <hr>
+            </div>
+
+
+            <!-- Carrusel de imágenes -->
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                </div>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="img/fornite1.png" class="d-block w-100" alt="Primera imagen" style="max-width: 600px; margin: auto;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="img/PlayStation-Xbox-PC.jpg" class="d-block w-100" alt="Segunda imagen" style="max-width: 600px; margin: auto;">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="max-width: 800px; margin: auto;">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="max-width: 800px; margin: auto;">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+            <hr>
+            <br>
+            <br>
         <div class="container">
             <!-- Descripción de la tarjeta Tiburón megalodonte -->
             <div class="card">
