@@ -31,7 +31,7 @@ namespace AplicacionBodega.Controllers
 
         // PUT: api/StockProducto/5
         [HttpPut("{productoId}")]
-        public async Task<IActionResult> PutStockProducto(int productoId, [FromBody] int cantidad)
+        public async Task<IActionResult> PutStockProducto(int productoId, [FromBody] int StockProductoUpdate updateDto)
         {
             if (productoId != updateDto.ProductoId)
             {
@@ -45,7 +45,7 @@ namespace AplicacionBodega.Controllers
                 return NotFound();
             }
 
-            stock.Cantidad = cantidad;
+            stock.Cantidad = updateDTO.cantidad;
 
             try
             {
