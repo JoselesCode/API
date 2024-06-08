@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compra de tarjetas Tiburón para GTA V</title>
+    <title>Pavos Fornite </title>
     <!-- Estilos CSS Bootstrap 5 -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Favicon -->
@@ -109,6 +109,9 @@
                 <div class="col-md-6">
                     <h2>Formulario de Compra</h2>
                     <form id="compraForm">
+                        <label for="cboCliente"> Cliente </label>
+                        <select name="cboCliente" id="cboCliente"></select>
+                        <br>
                         <div class="mb-3">
                             <label for="productoId" class="form-label">ID Producto</label>
                             <select class="form-select" id="productoId" required onchange="actualizarDescripcion()">
@@ -133,6 +136,34 @@
             </div>
         </div>
 
+
+        
+        <script type="text/javascript">
+        const cboCliente = document.getElementById('cboCliente');   
+        const listaClientes = await fetch("http://localhost:5000/api/clientes", { 
+            headers : {
+                "content_type": "application.json",
+                "Access.Control.Allow.Origin" : "*"
+            }, mode : 'cors'
+        }); 
+        listaClientes.then(async function(e){
+            console.log({e});
+            await e.json().then(async function(objeto){
+                //console.log(objeto);
+                //let itemStr = "";
+                objeto.forEach(element => {
+                    console.log({element});
+                    const item = document.createElement("item")
+                    itemStr+= "<option value='" + element.id + "'>" + element.razonSocial + "</option>";
+                });
+                cboCliente = innerHTML = itemStr
+            });
+        }).catch(function(error){
+            alert(error.message);
+        }).finally(function(e){
+            console.log({e});
+        });
+</script>
         <div class="container">
             <div class="row">
                 <!-- Texto a la izquierda -->
