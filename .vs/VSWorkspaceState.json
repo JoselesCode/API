@@ -1,0 +1,25 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AplicacionBodega.API",
+    "\\AplicacionBodega.API\\AplicacionBodega",
+<<<<<<< HEAD
+    "\\AplicacionBodega.API\\AplicacionBodega\\Controllers",
+    "\\AplicacionBodega.API\\AplicacionBodega\\DTOs",
+=======
+>>>>>>> 75c9448 (Avance clase API)
+    "\\AplicacionBodega.API\\AplicacionBodega\\Models",
+    "\\AplicacionCliente.API",
+    "\\AplicacionCliente.API\\AplicacionCliente",
+    "\\AplicacionCliente.API\\AplicacionCliente\\Controllers",
+    "\\AplicacionCliente.API\\AplicacionCliente\\Models",
+    "\\AplicacionProducto.API",
+    "\\AplicacionProducto.API\\AplicacionProducto"
+  ],
+<<<<<<< HEAD
+  "SelectedNode": "\\AplicacionBodega.API\\AplicacionBodega\\Controllers\\BodegaController.cs",
+=======
+  "SelectedNode": "\\AplicacionBodega.API\\AplicacionBodega\\AplicacionBodega.csproj",
+>>>>>>> 75c9448 (Avance clase API)
+  "PreviewInSolutionExplorer": false
+}
