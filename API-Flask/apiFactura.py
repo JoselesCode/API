@@ -14,8 +14,8 @@ CORS = CORS(app, resources={r"/api/*": {"origins": "*"}})
 # new Factura() -> #numerocualquiera --> Factura{}
 
 url_cliente = "http://localhost:5000/api/cliente"
-url_producto = "http://localhost:5002/api/Producto"
-url_logistica = "http://localhost:5003/api/StockProducto"
+url_producto = "http://localhost:5001/api/Producto" #Producto
+url_logistica = "http://localhost:5001/api/StockProducto" #Boleta
 
 class Factura(Resource):
     def post(self):
@@ -67,7 +67,7 @@ class Factura(Resource):
                         json={'stock': logistica_json['stock'] - json_data['cantidad']})
                         return objRespuesta
                     else:
-                        return {"error" : "Stock insuficiente}, 400
+                        return {"error" : "Stock insuficiente"}, 400
                 else:
                     return {"error" : "API de Logistica no responde"}, 500
             else:
@@ -80,4 +80,4 @@ class Factura(Resource):
         return objRespuesta
 
 api.add_resource(Factura, "/api/boleta", {"origins" : "*"})
-app.run(debug=True, port= "5001")
+app.run(debug=True, port= "5002")

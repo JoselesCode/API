@@ -33,3 +33,39 @@ C:\Users\Adm\source\repos\AplicacionProducto.API\AplicacionProducto\obj\Debug\ne
 C:\Users\Adm\source\repos\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.genruntimeconfig.cache
 C:\Users\Adm\source\repos\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\ref\AplicacionProducto.dll
 C:\Users\Adm\source\repos\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.csproj.AssemblyReference.cache
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.AssemblyInfoInputs.cache
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.AssemblyInfo.cs
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.csproj.CoreCompileInputs.cache
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.sourcelink.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\refint\AplicacionProducto.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.pdb
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\appsettings.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\AplicacionProducto.exe
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\AplicacionProducto.deps.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\AplicacionProducto.runtimeconfig.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\AplicacionProducto.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\AplicacionProducto.pdb
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\staticwebassets\msbuild.AplicacionProducto.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\staticwebassets\msbuild.build.AplicacionProducto.props
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.AplicacionProducto.props
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.AplicacionProducto.props
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\scopedcss\bundle\AplicacionProducto.styles.css
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\Aplicaci.D89D6A3E.Up2Date
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\AplicacionProducto.genruntimeconfig.cache
+C:\Users\Joseles Student\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\net6.0\ref\AplicacionProducto.dll

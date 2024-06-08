@@ -1033,19 +1033,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adm\\.nuget\\packages\\": {}
+    "C:\\Users\\Joseles Student\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adm\\source\\repos\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
+      "projectUniqueName": "C:\\Users\\Joseles Student\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
       "projectName": "AplicacionProducto",
-      "projectPath": "C:\\Users\\Adm\\source\\repos\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
-      "packagesPath": "C:\\Users\\Adm\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adm\\source\\repos\\AplicacionProducto.API\\AplicacionProducto\\obj\\",
+      "projectPath": "C:\\Users\\Joseles Student\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
+      "packagesPath": "C:\\Users\\Joseles Student\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Joseles Student\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Adm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Joseles Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

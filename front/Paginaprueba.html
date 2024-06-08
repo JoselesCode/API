@@ -130,7 +130,7 @@
                             <label for="productoValor" class="form-label">Valor</label>
                             <input type="number" class="form-control" id="productoValor" readonly>
                         </div>
-                        <button type="submit" class="btn btn-primary">Comprar</button>
+                        <button  onclick="clickEnviar()" type="submit" class="btn btn-primary">Comprar</button> 
                     </form>
                 </div>
             </div>
@@ -163,7 +163,48 @@
         }).finally(function(e){
             console.log({e});
         });
-</script>
+        function clickEnviar(e){
+        //console.log("Enviado");
+        //e.preventDefault();
+    
+
+        
+        const idCliente = document.getElementById("cboCliente").value;
+        const idProducto = document.getElementById("cboProducto").value;
+        const Cantidad = document.getElementById("txtCantidad").value;
+
+        const objEnvio = {
+            "id_cliente": idCliente,
+            "producto_id": idProducto,
+            "cantidad": Cantidad
+        };
+        console.log({objEnvio});
+
+        //EnvioFactura API Flask
+        fetch("http://localhost:5001/api/boleta", {
+            headers : {
+                "Content_Type": "application/json",
+                "Access_Control_Allow_Origin" : "*",
+            },
+            mode : 'cors',
+            method: 'POST',
+            body: JSON.stringify(objEnvio)
+        }).then(async function(e){
+            await e.json().then((obj) => {console.log({obj}) });
+        }).catch(function(error){alert(error.message) })
+        .finally(function(){
+            alert("Enviado con éxito");
+            // JSON.parse("{ 'id': 5, 'name': 'Alfonso' }");
+            // {
+            //     "id": 5,
+            //     "name": "Alfonso"
+            // }
+        });
+    }
+
+    const btnEnviar = document.getElementById('btnEnviar');
+    btnEnviar.addEventListener("click", clickEnviar);
+    </script>
         <div class="container">
             <div class="row">
                 <!-- Texto a la izquierda -->
