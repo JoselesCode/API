@@ -12,23 +12,23 @@ namespace AplicacionProducto.Controllers
     [ApiController]
     public class ProductoControllers : ControllerBase
     {
-        private readonly ProductosContext _context;
+        private readonly ProductosContext _context;    //El contexto de la DB.
 
-        public ProductoControllers(ProductosContext context)
+        public ProductoControllers(ProductosContext context)    //Constructor que inicializa el controlador con el contexto de la DB.
         {
             _context = context;
         }
 
         // GET: api/Productos
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Productos>>> GetProductos()
+        public async Task<ActionResult<IEnumerable<Productos>>> GetProductos()    //Obtiene todos los productos.
         {
             return await _context.Productos.ToListAsync();
         }
 
         // GET: api/Productos/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Productos>> GetProductos(int id)
+        public async Task<ActionResult<Productos>> GetProductos(int id)    //Obtiene un producto por su ID.
         {
             //var resultado = lista.Where(x => x.id == id);
             // var lista 
@@ -45,7 +45,7 @@ namespace AplicacionProducto.Controllers
         // PUT: api/Productos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductos(int id, Productos producto)
+        public async Task<IActionResult> PutProductos(int id, Productos producto)    //Actualiza un producto existente.
         {
             if (id != producto.Id)
             {
@@ -75,7 +75,7 @@ namespace AplicacionProducto.Controllers
 
         // POST: api/Productos
         [HttpPost]
-        public async Task<ActionResult<Productos>> PostProductos(Productos producto)
+        public async Task<ActionResult<Productos>> PostProductos(Productos producto)    //Crea un nuevo producto.
         {
             _context.Productos.Add(producto);
             await _context.SaveChangesAsync();
@@ -85,7 +85,7 @@ namespace AplicacionProducto.Controllers
 
         // DELETE: api/Productos/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProductos(int id)
+        public async Task<IActionResult> DeleteProductos(int id)    //Elimina un producto por su ID.
         {
 
             //Productos seleccionar = lista.FirstorDefault( x => x.id ==x);
@@ -102,7 +102,7 @@ namespace AplicacionProducto.Controllers
             return NoContent();
         }
 
-        private bool ProductosExists(int id)
+        private bool ProductosExists(int id)    //Verifica si un producto existe.
         {
             return _context.Productos.Any(e => e.Id == id);
         }
