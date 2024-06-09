@@ -1,4 +1,5 @@
-﻿namespace AplicacionCliente.Models
+//Modelo de datos para representar a un cliente en la aplicación AplicacionCliente.
+namespace AplicacionCliente.Models
 {
     public class Clientes
     {
