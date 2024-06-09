@@ -7,9 +7,9 @@ namespace AplicacionProducto.Models
 {
     public class Productos
     {
-        public int Id { get; set; }
-        public string? NombreProducto { get; set; }
-        public int Precio { get; set; }
+        public int Id { get; set; }    //Identificador único del producto.
+        public string? NombreProducto { get; set; }    //Nombre del producto, puede ser null.
+        public int Precio { get; set; }    //Precio del producto
 
     }
 }
