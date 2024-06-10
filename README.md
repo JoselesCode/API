@@ -1,6 +1,7 @@
 # API
 Códigos desarrollados para la creación de Apis
-
+#Considerar extension GoogleChrome, Este trata de habilitar Cors, Tuvimos mucho tiempo lidiando con CORS que esta extension nos logro ver los Get de las APIS
+https://chromewebstore.google.com/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=es-419&utm_source=ext_sidebar
 #CONSIDERAR SIGUIENTES JSON PARA INGRESAR EN LAS APIS
 API CLIENTES
 {
