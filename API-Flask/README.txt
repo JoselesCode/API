@@ -1,4 +1,4 @@
-Instalar flask desde el CMD:
+Instalar flask desde el CMD: 
 
 1) pip install Flask
 
