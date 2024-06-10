@@ -8,12 +8,33 @@
     ".NETCoreApp,Version=v6.0": {
       "AplicacionBodega/1.0.0": {
         "dependencies": {
+          "Igor.Gateway.Dtos": "14.8.1",
           "Microsoft.EntityFrameworkCore": "6.0.0",
           "Microsoft.EntityFrameworkCore.InMemory": "6.0.0",
           "Swashbuckle.AspNetCore": "6.5.0"
         },
         "runtime": {
           "AplicacionBodega.dll": {}
+        }
+      },
+      "Igor.Gateway.Dtos/14.8.1": {
+        "dependencies": {
+          "Igor.Sdk.Common": "5.3.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Igor.Gateway.Dtos.dll": {
+            "assemblyVersion": "14.8.1.0",
+            "fileVersion": "14.8.1.0"
+          }
+        }
+      },
+      "Igor.Sdk.Common/5.3.0": {
+        "runtime": {
+          "lib/netstandard2.0/Igor.Sdk.Common.dll": {
+            "assemblyVersion": "5.3.0.0",
+            "fileVersion": "5.3.0.0"
+          }
         }
       },
       "Microsoft.EntityFrameworkCore/6.0.0": {
@@ -104,6 +125,14 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.5.0": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "6.0.5",
@@ -160,6 +189,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Igor.Gateway.Dtos/14.8.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JNDw7KuamI/3QH12oyhSf3DYO0NhKq4SRwwSW+qAj0ziz9JXB0t9rcTavHj/9k3Ag4AlKBTtakEr581QGSU/SA==",
+      "path": "igor.gateway.dtos/14.8.1",
+      "hashPath": "igor.gateway.dtos.14.8.1.nupkg.sha512"
+    },
+    "Igor.Sdk.Common/5.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-hh1GccDm9BoU2BqOdWm2kupEaFJq9Cx38TBIG1905KI+6A8FHPEYYZAm00xarag6/+4JzjhcFubEgmdCpFWeEQ==",
+      "path": "igor.sdk.common/5.3.0",
+      "hashPath": "igor.sdk.common.5.3.0.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore/6.0.0": {
       "type": "package",
@@ -258,6 +301,13 @@
       "sha512": "sha512-Nug3rO+7Kl5/SBAadzSMAVgqDlfGjJZ0GenQrLywJ84XGKO0uRqkunz5Wyl0SDwcR71bAATXvSdbdzPrYRYKGw==",
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore/6.5.0": {
       "type": "package",

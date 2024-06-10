@@ -2,6 +2,28 @@
   "version": 3,
   "targets": {
     "net6.0": {
+      "Igor.Gateway.Dtos/14.8.1": {
+        "type": "package",
+        "dependencies": {
+          "Igor.Sdk.Common": "5.3.0",
+          "Newtonsoft.JSON": "12.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.1/Igor.Gateway.Dtos.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/Igor.Gateway.Dtos.dll": {}
+        }
+      },
+      "Igor.Sdk.Common/5.3.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Igor.Sdk.Common.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Igor.Sdk.Common.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore/6.0.0": {
         "type": "package",
         "dependencies": {
@@ -230,6 +252,19 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/6.5.0": {
         "type": "package",
         "dependencies": {
@@ -350,6 +385,30 @@
     }
   },
   "libraries": {
+    "Igor.Gateway.Dtos/14.8.1": {
+      "sha512": "JNDw7KuamI/3QH12oyhSf3DYO0NhKq4SRwwSW+qAj0ziz9JXB0t9rcTavHj/9k3Ag4AlKBTtakEr581QGSU/SA==",
+      "type": "package",
+      "path": "igor.gateway.dtos/14.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "igor.gateway.dtos.14.8.1.nupkg.sha512",
+        "igor.gateway.dtos.nuspec",
+        "lib/netstandard2.1/Igor.Gateway.Dtos.dll"
+      ]
+    },
+    "Igor.Sdk.Common/5.3.0": {
+      "sha512": "hh1GccDm9BoU2BqOdWm2kupEaFJq9Cx38TBIG1905KI+6A8FHPEYYZAm00xarag6/+4JzjhcFubEgmdCpFWeEQ==",
+      "type": "package",
+      "path": "igor.sdk.common/5.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "igor.sdk.common.5.3.0.nupkg.sha512",
+        "igor.sdk.common.nuspec",
+        "lib/netstandard2.0/Igor.Sdk.Common.dll"
+      ]
+    },
     "Microsoft.EntityFrameworkCore/6.0.0": {
       "sha512": "BdHAtHzfQt3rltgSoYamSlHg2qawPtEDT677/bcSJlO8lQ/lj6XWlusM0TOt59O8Sbqm3hAC1a+4cEBxmv56pw==",
       "type": "package",
@@ -861,6 +920,37 @@
         "microsoft.openapi.nuspec"
       ]
     },
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "Swashbuckle.AspNetCore/6.5.0": {
       "sha512": "FK05XokgjgwlCI6wCT+D4/abtQkL1X1/B9Oas6uIwHFmYrIO9WUD5aLC9IzMs9GnHfUXOtXZ2S43gN1mhs5+aA==",
       "type": "package",
@@ -1027,6 +1117,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Igor.Gateway.Dtos >= 14.8.1",
       "Microsoft.EntityFrameworkCore >= 6.0.0",
       "Microsoft.EntityFrameworkCore.InMemory >= 6.0.0",
       "Swashbuckle.AspNetCore >= 6.5.0"
@@ -1077,6 +1168,10 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Igor.Gateway.Dtos": {
+            "target": "Package",
+            "version": "[14.8.1, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[6.0.0, )"

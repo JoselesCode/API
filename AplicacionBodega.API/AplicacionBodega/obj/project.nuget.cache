@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "HKRPZp0h/j8=",
+  "dgSpecHash": "DBZUXyUPlUw=",
   "success": true,
   "projectFilePath": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\AplicacionBodega.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Adm\\.nuget\\packages\\igor.gateway.dtos\\14.8.1\\igor.gateway.dtos.14.8.1.nupkg.sha512",
+    "C:\\Users\\Adm\\.nuget\\packages\\igor.sdk.common\\5.3.0\\igor.sdk.common.5.3.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.0\\microsoft.entityframeworkcore.6.0.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\6.0.0\\microsoft.entityframeworkcore.abstractions.6.0.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\6.0.0\\microsoft.entityframeworkcore.analyzers.6.0.0.nupkg.sha512",
@@ -18,6 +20,7 @@
     "C:\\Users\\Adm\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Adm\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.5.0\\swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.5.0\\swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",

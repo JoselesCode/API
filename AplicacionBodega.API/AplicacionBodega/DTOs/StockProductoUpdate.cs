@@ -1,8 +1,11 @@
 ﻿using System;
 
-public class StockProductoUpdateDTO
+namespace AplicacionBodega.DTOs
 {
-	public int Id { get; set; }
-	public int ProductoId { get; set; }
-	public int Cantida { get; set; }
+	public class StockProductoUpdateDTO
+	{
+		public int Id { get; set; }
+		public int ProductoId { get; set; }
+		public int Cantidad { get; set; }
+	}
 }

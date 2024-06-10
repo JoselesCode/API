@@ -7,16 +7,16 @@
       "RelativeMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|solutionrelative:aplicacionbodega\\controllers\\bodegacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|c:\\users\\adm\\desktop\\api\\aplicacionbodega.api\\aplicacionbodega\\models\\stockproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|solutionrelative:aplicacionbodega\\models\\stockproducto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|c:\\users\\adm\\desktop\\api\\aplicacionbodega.api\\aplicacionbodega\\models\\bodegacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|solutionrelative:aplicacionbodega\\models\\bodegacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|c:\\users\\adm\\desktop\\api\\aplicacionbodega.api\\aplicacionbodega\\dtos\\stockproductoupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|solutionrelative:aplicacionbodega\\dtos\\stockproductoupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|c:\\users\\adm\\desktop\\api\\aplicacionbodega.api\\aplicacionbodega\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|solutionrelative:aplicacionbodega\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|c:\\users\\adm\\desktop\\api\\aplicacionbodega.api\\aplicacionbodega\\models\\bodegacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5BC7DC7B-4C32-47D3-AA5F-B485B10CB71D}|AplicacionBodega\\AplicacionBodega.csproj|solutionrelative:aplicacionbodega\\models\\bodegacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,19 +35,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Program.cs",
-              "RelativeDocumentMoniker": "AplicacionBodega\\Program.cs",
-              "ToolTip": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Program.cs",
-              "RelativeToolTip": "AplicacionBodega\\Program.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Title": "StockProductoUpdate.cs",
+              "DocumentMoniker": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\DTOs\\StockProductoUpdate.cs",
+              "RelativeDocumentMoniker": "AplicacionBodega\\DTOs\\StockProductoUpdate.cs",
+              "ToolTip": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\DTOs\\StockProductoUpdate.cs",
+              "RelativeToolTip": "AplicacionBodega\\DTOs\\StockProductoUpdate.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T22:59:00.612Z",
+              "WhenOpened": "2024-06-09T22:56:31.759Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "BodegaContext.cs",
               "DocumentMoniker": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Models\\BodegaContext.cs",
               "RelativeDocumentMoniker": "AplicacionBodega\\Models\\BodegaContext.cs",
@@ -55,7 +55,8 @@
               "RelativeToolTip": "AplicacionBodega\\Models\\BodegaContext.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T22:00:10.214Z"
+              "WhenOpened": "2024-06-06T22:00:10.214Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -65,22 +66,22 @@
               "RelativeDocumentMoniker": "AplicacionBodega\\Controllers\\BodegaController.cs",
               "ToolTip": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Controllers\\BodegaController.cs",
               "RelativeToolTip": "AplicacionBodega\\Controllers\\BodegaController.cs",
-              "ViewState": "AQIAACUAAAAAAAAAAAAAwDEAAAAPAAAA",
+              "ViewState": "AQIAABsAAAAAAAAAAAAowAMAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-06-06T21:47:02.458Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "StockProducto.cs",
-              "DocumentMoniker": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Models\\StockProducto.cs",
-              "RelativeDocumentMoniker": "AplicacionBodega\\Models\\StockProducto.cs",
-              "ToolTip": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Models\\StockProducto.cs",
-              "RelativeToolTip": "AplicacionBodega\\Models\\StockProducto.cs",
-              "ViewState": "AQIAAAIAAAAAAAAAAAAxwAYAAAApAAAA",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Program.cs",
+              "RelativeDocumentMoniker": "AplicacionBodega\\Program.cs",
+              "ToolTip": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\Program.cs",
+              "RelativeToolTip": "AplicacionBodega\\Program.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA4AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-06T21:47:06.36Z",
+              "WhenOpened": "2024-06-06T22:59:00.612Z",
               "EditorCaption": ""
             }
           ]

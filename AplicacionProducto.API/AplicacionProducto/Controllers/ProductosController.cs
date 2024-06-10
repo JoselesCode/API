@@ -1,4 +1,4 @@
-using AplicacionProducto.Models;
+﻿using AplicacionProducto.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,11 +6,11 @@ namespace AplicacionProducto.Controllers
 {
     [Route("api/Productos")]
     [ApiController]
-    public class ProductoControllers : ControllerBase
+    public class ProductosController : ControllerBase
     {
         private readonly ProductosContext _context;
 
-        public ProductoControllers(ProductosContext context)
+        public ProductosController(ProductosContext context)
         {
             _context = context;
         }

@@ -68,3 +68,6 @@ C:\Users\Adm\Desktop\API\AplicacionBodega.API\AplicacionBodega\obj\Debug\net6.0\
 C:\Users\Adm\Desktop\API\AplicacionBodega.API\AplicacionBodega\obj\Debug\net6.0\AplicacionBodega.genruntimeconfig.cache
 C:\Users\Adm\Desktop\API\AplicacionBodega.API\AplicacionBodega\obj\Debug\net6.0\ref\AplicacionBodega.dll
 C:\Users\Adm\Desktop\API\AplicacionBodega.API\AplicacionBodega\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.InMemory.dll
+C:\Users\Adm\Desktop\API\AplicacionBodega.API\AplicacionBodega\bin\Debug\net6.0\Igor.Gateway.Dtos.dll
+C:\Users\Adm\Desktop\API\AplicacionBodega.API\AplicacionBodega\bin\Debug\net6.0\Igor.Sdk.Common.dll
+C:\Users\Adm\Desktop\API\AplicacionBodega.API\AplicacionBodega\bin\Debug\net6.0\Newtonsoft.Json.dll

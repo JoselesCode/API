@@ -1,6 +1,7 @@
 ﻿using AplicacionBodega.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using AplicacionBodega.DTOs;
 
 namespace AplicacionBodega.Controllers
 {
@@ -31,9 +32,9 @@ namespace AplicacionBodega.Controllers
 
         // PUT: api/StockProducto/5
         [HttpPut("{productoId}")]
-        public async Task<IActionResult> PutStockProducto(int productoId, [FromBody] int StockProductoUpdate updateDto)
+        public async Task<IActionResult> PutStockProducto(int productoId, [FromBody] StockProductoUpdateDTO UpdateDto)
         {
-            if (productoId != updateDto.ProductoId)
+            if (productoId != UpdateDto.ProductoId)
             {
                 return BadRequest("ProductoId en la URL no coincide con el ProductoId en el cuerpo de la solicitud");
             }
@@ -45,7 +46,7 @@ namespace AplicacionBodega.Controllers
                 return NotFound();
             }
 
-            stock.Cantidad = updateDTO.cantidad;
+            stock.Cantidad = UpdateDto.Cantidad;
 
             try
             {
