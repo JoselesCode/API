@@ -114,13 +114,6 @@
                         <br>
                         <div class="mb-3">
                             <label for="productoId" class="form-label">ID Producto</label>
-                            <select class="form-select" id="productoId" required onchange="actualizarDescripcion()">
-                                <option value="">Seleccione un ID</option>
-                                <option value="1">1 - Tarjeta 1000 V-Bucks</option>
-                                <option value="2">2 - Tarjeta 2800 V-Bucks</option>
-                                <option value="3">3 - Tarjeta 5000 V-Bucks</option>
-                                <option value="4">4 - Tarjeta 13500 V-Bucks</option>
-                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="productoCantidad" class="form-label">Cantidad</label>
@@ -204,35 +197,9 @@
 
     const btnEnviar = document.getElementById('btnEnviar');
     btnEnviar.addEventListener("click", clickEnviar);
-    </script>
-                <!-- Carrusel de imágenes -->
-            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="img/fornite1.png" class="d-block w-100" alt="Primera imagen" style="max-width: 600px; margin: auto;">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="img/PlayStation-Xbox-PC.jpg" class="d-block w-100" alt="Segunda imagen" style="max-width: 600px; margin: auto;">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev" style="max-width: 800px; margin: auto;">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next" style="max-width: 800px; margin: auto;">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-            <hr>
-            <br>
-            <br>
+    </script>             
         <div class="container">
-            <!-- Descripción de la tarjeta Tiburón megalodonte -->
+            <!-- Descripción 1 -->
             <div class="card">
                 <img src="img/1000_pavos.jpeg" alt="Tarjeta 1000 V-Bucks ">
                 <div class="card-info">
@@ -243,7 +210,7 @@
                 </div>
             </div>
 
-            <!-- Descripción de la tarjeta Tiburón ballena -->
+            <!-- Descripción 2 -->
             <div class="card">
                 <img src="img/2800_pavos.jpeg" alt="Tarjeta 2800 V-Bucks">
                 <div class="card-info">
@@ -254,7 +221,7 @@
                 </div>
             </div>
 
-            <!-- Descripción de la tarjeta Gran tiburón blanco -->
+            <!-- Descripción 3-->
             <div class="card">
                 <img src="img/5000_pavos.jpeg" alt="Tarjeta 5000 V-Bucks">
                 <div class="card-info">
@@ -265,7 +232,7 @@
                 </div>
             </div>
 
-            <!-- Descripción de la tarjeta Tiburón toro -->
+            <!-- Descripción 4-->
             <div class="card">
                 <img src="img/13500_pavos.jpeg" alt="Tarjeta 13500 V-Bucks">
                 <div class="card-info">
