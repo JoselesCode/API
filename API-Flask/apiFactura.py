@@ -7,7 +7,7 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-url_cliente = "http://localhost:5000/api/cliente"
+url_cliente = "http://localhost:5001/api/cliente"
 url_producto = "http://localhost:5001/api/Productos"
 url_logistica = "http://localhost:5001/api/StockProducto"
 

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Joseles Student\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj": {}
+    "C:\\Users\\Adm\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Joseles Student\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj": {
+    "C:\\Users\\Adm\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Joseles Student\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj",
+        "projectUniqueName": "C:\\Users\\Adm\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj",
         "projectName": "AplicacionCliente",
-        "projectPath": "c:\\Users\\Joseles Student\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj",
-        "packagesPath": "C:\\Users\\Joseles Student\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Joseles Student\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\obj\\",
+        "projectPath": "C:\\Users\\Adm\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\AplicacionCliente.csproj",
+        "packagesPath": "C:\\Users\\Adm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adm\\Desktop\\API\\AplicacionCliente.API\\AplicacionCliente\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Joseles Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
