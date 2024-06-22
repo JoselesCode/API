@@ -103,7 +103,7 @@
 
                 data.forEach(cliente => {
                     const div = document.createElement('div');
-                    div.textContent = 'ID: ${cliente.id}, NombreCliente: ${cliente.razonSocial}, Direccion: ${cliente.direccion}, Rut: ${cliente.rut}';
+                    div.textContent = `ID: ${cliente.id}, NombreCliente: ${cliente.razonSocial}, Direccion: ${cliente.direccion}, Rut: ${cliente.rut}`;
                     productosContainer.appendChild(div);
                 })
               })

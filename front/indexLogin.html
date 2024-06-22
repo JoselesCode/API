@@ -12,17 +12,20 @@
         <div class="form-content">
             
             <h3>Bienvenido</h3>
-            <form method="post" action="">
+            <form method="post" action="" id="InicioSesion">
                 <div class="input-box">
-                    <input type="email" placeholder="Email" class="input-control" name="Email" id = 'Email'>
+                    <input type="text" placeholder="Nombre" class="input-control" name="Nombre" id ='Nombre'>
                 </div>
                 <div class="input-box">
-                    <input type="password" placeholder="Password" class="input-control" name="password" id = 'Password'>
+                    <input type="text" placeholder="Rut" class="input-control" name="Rut" id ='Rut'>
                     <div class="input-link">
-                        <a href="recuperarC.html"class="gradient-text">Has olvidado tu contraseña</a><!-- eticketa enlace para redirigir --> 
+                        <a href="recuperarC.html"class="gradient-text">¿Has olvidado tu contraseña?</a><!-- eticketa enlace para redirigir --> 
                     </div>
                 </div>
-                <input type="submit" onclick=' return enviarFormulario()' value="Iniciar sesion" class="btn">
+                <div class="input-box">
+                    <input type="text" placeholder="Direccion" class="input-control" name="Direccion" id='Direccion'>
+                </div>
+                <input type="submit" value="Iniciar sesion" class="btn">
                  
             </form>
             <p> <a href="index.html" class="gradient-text"> Iniciar como invitado</a></p>
@@ -34,7 +37,39 @@
     <div id="error"></div>
 
 
-    <script src="app.js"></script>
+    <script>
+        document.getElementById('InicioSesion').addEventListener('submit', function (event) {
+            event.preventDefault();
+            d
+            const nombreCliente = document.getElementById('Nombre').value;
+            const rutCliente = document.getElementById('Rut').value;
+            const direccionCliente = document.getElementById('Direccion').value;
+
+
+            const cliente = {
+                RazonSocial: nombreCliente,
+                Direccion: direccionCliente,
+                Rut: rutCliente
+            }
+
+            fetch('http://localhost:5000/api/Clientes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cliente)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert(' Sesión Iniciada');
+                    document.getElementById('InicioSesion').reset();
+                })
+                .catch(error => {
+                    console.error('Error al agregar producto:', error);
+                });
+        });
+        
+    </script>
     
 </body>
 </html>
