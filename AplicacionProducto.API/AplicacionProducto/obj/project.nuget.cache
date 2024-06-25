@@ -1,5 +1,6 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "mzaOv2SavZg=",
   "success": true,
   "projectFilePath": "C:\\Users\\Adm\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
@@ -200,5 +201,11 @@
     "C:\\Users\\Adm\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Adm\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512"
   ],
+=======
+  "dgSpecHash": "p7Wt01Brv41ilFkwrEQ9WUUXqTl7wt6ksoCk0OAjgsIAJJNsO3hZYHv9qc+MvpuVyN9xFx7AQNZWDP/cAZA5lA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Cetecom\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> dd17d983328deb02aee7904e1ad093c6bb2955e2
   "logs": []
 }

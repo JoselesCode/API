@@ -6,8 +6,9 @@
     "\\AplicacionProducto.API",
     "\\AplicacionProducto.API\\AplicacionProducto",
     "\\AplicacionProducto.API\\AplicacionProducto\\Controllers",
+    "\\AplicacionProducto.API\\AplicacionProducto\\Models",
     "\\front"
   ],
-  "SelectedNode": "\\AplicacionProducto.API\\AplicacionProducto.API.sln",
+  "SelectedNode": "\\front\\((index.html",
   "PreviewInSolutionExplorer": false
 }
