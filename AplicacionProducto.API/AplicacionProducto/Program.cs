@@ -2,12 +2,12 @@ using Microsoft.EntityFrameworkCore;
 using AplicacionProducto.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddDbContext<ProductosContext>(opt => opt.UseInMemoryDatabase("TodoList"));
+builder.Services.AddDbContext<ProductosContext>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

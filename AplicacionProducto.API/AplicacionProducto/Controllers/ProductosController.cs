@@ -1,6 +1,8 @@
 ﻿using AplicacionProducto.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace AplicacionProducto.Controllers
 {
@@ -9,14 +11,35 @@ namespace AplicacionProducto.Controllers
     public class ProductosController : ControllerBase
     {
         private readonly ProductosContext _context;
+        private readonly IConfiguration _configuration;
 
-        public ProductosController(ProductosContext context)
+        public ProductosController(ProductosContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
-        // GET: api/Productos
-        [HttpGet]
+        //Modelo para testear la conexión a la base de datos.
+        [HttpGet("test-connection")]
+        public IActionResult TestConnection()
+        {
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+            try
+            {
+                using var connection = new SqlConnection(connectionString);
+                connection.Open();
+                return Ok("Conexión exitosa");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al conectar: {ex.Message}");
+            }
+        }
+    
+
+    // GET: api/Productos
+    [HttpGet]
         public async Task<ActionResult<IEnumerable<Productos>>> GetProductos()
         {
             return await _context.Productos.ToListAsync();

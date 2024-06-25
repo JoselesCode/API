@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Clientes</title>
+    <!-- Estilos CSS Bootstrap 5 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos CSS personalizados -->
+    <style>
+        /* Estilos personalizados */
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+    <script>
+        // Definir la función para cargar la razón social del cliente
+        function cargarRazonSocialCliente() {
+            // Realizar una solicitud para obtener la información del cliente
+            fetch("http://localhost:5000/api/Clientes")
+                .then(response => response.json()) // Convertir la respuesta a JSON
+                .then(data => {
+                    // Iterar sobre cada cliente
+                    data.forEach(cliente => {
+                        // Obtener la razón social del cliente actual
+                        const razonSocial = cliente.razonSocial;
+                        // Crear un nuevo elemento de párrafo para mostrar la razón social
+                        const p = document.createElement('p');
+                        // Asignar el texto de la razón social al elemento de párrafo
+                        p.textContent = `Razón Social: ${razonSocial}`;
+                        // Agregar el elemento de párrafo al contenedor
+                        document.getElementById('razonSocialContainer').appendChild(p);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar la razón social del cliente:', error);
+                });
+        }
+
+        // Llamar a la función cuando se carga la página
+        window.onload = cargarRazonSocialCliente;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Formulario de Clientes</h1>
+        <!-- Contenedor para mostrar la razón social de todos los clientes -->
+        <div id="razonSocialContainer"></div>
+        <!-- Otros campos del formulario -->
+        <!-- Aquí puedes agregar más campos para el formulario de clientes -->
+    </div>
+</body>
+</html>
