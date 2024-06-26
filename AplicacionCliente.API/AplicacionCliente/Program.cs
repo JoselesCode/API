@@ -2,15 +2,16 @@ using AplicacionCliente.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddDbContext<ClientesContext>(opt => opt.UseInMemoryDatabase("TodoList"));
+builder.Services.AddDbContext<ClientesContext>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//Configurar CORS
 builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(

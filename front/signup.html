@@ -1,70 +1,87 @@
-<!-- EN ESTE DOCUMENTO NO FUNCIONA POR AHORA LA VALIDACION--> 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscibirse</title>
+    <title>Inscribirse</title>
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="icon" href="img/icon.jpg">
 </head>
 <body>
     <section class="form-main">
         <div class="form-content">
-            
             <h3>Crear una cuenta</h3>
-            <form method="post" action="">
+            <form id="registroForm" method="post" action="">
                 <div class="input-box">
-                    <input type="text" placeholder="Nombre Completo" class="input-control" name="name" id='nombre'>
+                    <input type="text" placeholder="Nombre Completo" class="input-control" name="name" id="nombre">
                 </div>
                 <div class="input-box">
-                    <input type="email" placeholder="Email" class="input-control" name="Email" id='Email'>
+                    <input type="email" placeholder="Email" class="input-control" name="Email" id="Email">
                 </div>
                 <div class="input-box">
-                    <input type="Password" placeholder="Password" class="input-control" name="password" id = 'Password'>
+                    <input type="password" placeholder="Password" class="input-control" name="password" id="Password">
                 </div>
-                <input type="submit" onclick=' return enviarFormulario()' value="Crear cuenta" class="btn">
+                <input type="submit" value="Crear cuenta" class="btn">
             </form>
-            <p>¿Ya tienes una cuenta? <a href="indexLogin.html" class="gradient-text"> Iniciar sesión</a></p>
+            <p>¿Ya tienes una cuenta? <a href="indexLogin.html" class="gradient-text">Iniciar sesión</a></p>
         </div>
-
     </section>
     
     <div id="error"></div>
 
-
     <script>
-    var nombre = document.getElementById('nombre');
-    var Email = document.getElementById('Email');
-    var password = document.getElementById('Password');
-    var error = document.getElementById('error');
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
 
+            var nombre = document.getElementById('nombre').value;
+            var Email = document.getElementById('Email').value;
+            var password = document.getElementById('Password').value;
+            var error = document.getElementById('error');
 
-    function enviarFormulario(){
-    console.log('Enviando formulario...');
+            const cliente = {
+                Email: Email,
+                RazonSocial: nombre,
+                Password: password
+            };
 
+            var mensajesError = [];
 
-    var mensajesError = [];
+            if (!nombre) {
+                mensajesError.push('Nombre');
+            }
+            if (!Email) {
+                mensajesError.push('Email');
+            }
+            if (!password) {
+                mensajesError.push('Contraseña');
+            }
 
+            if (mensajesError.length > 0) {
+                error.textContent = "Por favor ingresa los siguientes datos: " + mensajesError.join(', ');
+                return;
+            }
 
-    if(nombre.value === null  || nombre.value === ''){
-       mensajesError.push('Nombre')
-    }
-    if(Email.value === null  || Email.value === ''){
-        mensajesError.push('Email')
-    }
-    if(password.value === null  || password.value === ''){
-        mensajesError.push('Contraseña')
-    }
-
-    if(mensajesError.length > 0){
-        error.innerHTML = "Por favor ingresa los siguientes datos: " + mensajesError.join(', ');
-        return false;
-    }
-
-    return false
-    }
+            fetch('http://localhost:5000/api/Clientes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cliente)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud');
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert('Cliente agregado exitosamente');
+                console.log('Success:', data);
+            })
+            .catch(error => {
+                console.error('Error al registrar cliente:', error);
+            });
+        });
     </script>
 
 </body>

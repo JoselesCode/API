@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Cetecom\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj": {}
+    "C:\\Users\\Adm\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Cetecom\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj": {
+    "C:\\Users\\Adm\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Cetecom\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
+        "projectUniqueName": "C:\\Users\\Adm\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
         "projectName": "AplicacionProducto",
-        "projectPath": "C:\\Users\\Cetecom\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
-        "packagesPath": "C:\\Users\\Cetecom\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Cetecom\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\obj\\",
+        "projectPath": "C:\\Users\\Adm\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\AplicacionProducto.csproj",
+        "packagesPath": "C:\\Users\\Adm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Adm\\Desktop\\API\\AplicacionProducto.API\\AplicacionProducto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Cetecom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,12 +35,16 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-<<<<<<< HEAD
           "dependencies": {
             "Microsoft.AspNetCore.Cors": {
               "target": "Package",
@@ -76,19 +81,26 @@
               "version": "[6.5.0, )"
             }
           },
-=======
->>>>>>> dd17d983328deb02aee7904e1ad093c6bb2955e2
           "imports": [
             "net461",
             "net462",
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.411\\RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

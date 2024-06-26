@@ -38,8 +38,8 @@ namespace AplicacionProducto.Controllers
         }
     
 
-    // GET: api/Productos
-    [HttpGet]
+        // GET: api/Productos
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<Productos>>> GetProductos()
         {
             return await _context.Productos.ToListAsync();

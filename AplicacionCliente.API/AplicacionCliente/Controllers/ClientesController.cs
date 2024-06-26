@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AplicacionCliente.Models;
+using Microsoft.Data.SqlClient;
 
 namespace AplicacionCliente.Controllers
 {
@@ -14,10 +15,30 @@ namespace AplicacionCliente.Controllers
     public class ClientesController : ControllerBase
     {
         private readonly ClientesContext _context;
+        private readonly IConfiguration _configuration;
 
-        public ClientesController(ClientesContext context)
+        public ClientesController(ClientesContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
+        }
+
+        //Modelo para testear la conexión a la base de datos.
+        [HttpGet("test-connection")]
+        public IActionResult TestConnection()
+        {
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
+
+            try
+            {
+                using var connection = new SqlConnection(connectionString);
+                connection.Open();
+                return Ok("Conexión exitosa");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error al conectar: {ex.Message}");
+            }
         }
 
         // GET: api/Clientes
