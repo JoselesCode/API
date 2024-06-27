@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pavos Fornite </title>
+    <title>Pavos Fornite</title>
     <!-- Estilos CSS Bootstrap 5 -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Favicon -->
@@ -38,26 +38,6 @@
             margin-top: 0;
         }
     </style>
-    <script>
-        const productos = {
-            1: { descripcion: 'Tarjeta 1000 V-Bucks', valor: 8500 },
-            2: { descripcion: 'Tarjeta 2800 V-Bucks', valor: 16000 },
-            3: { descripcion: 'Tarjeta 5000 V-Bucks', valor: 32000 },
-            4: { descripcion: 'Tarjeta 13500 V-Bucks', valor: 65000 }
-        };
-
-
-        function actualizarValor() {
-            const productoId = document.getElementById('productoId').value;
-            const cantidad = document.getElementById('productoCantidad').value;
-            const valor = document.getElementById('productoValor');
-            if (productoId && productos[productoId] && cantidad) {
-                valor.value = productos[productoId].valor * cantidad;
-            } else {
-                valor.value = '';
-            }
-        }
-    </script>
 </head>
 <body>
     <main>
@@ -102,18 +82,24 @@
                     <h2>¿QUÉ SON LOS PAVOS?</h2>
                     <p><strong>Descripción:</strong> La tarjeta de pavos de Fortnite te permite obtener V-Bucks, la moneda virtual del juego, que puedes utilizar para comprar objetos en la tienda de Fortnite, como skins, bailes, pases de batalla y más.</p>
                     <p>No esperes más y mejora tu experiencia en Fortnite con la tarjeta de pavos.</p>
-                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
+                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC</p>
                 </div>
                 
                 <!-- Formulario de compra a la derecha -->
                 <div class="col-md-6">
                     <h2>Formulario de Compra</h2>
                     <form id="compraForm">
-                        <label for="cboCliente"> Cliente </label>
-                        <select name="cboCliente" id="cboCliente"></select>
-                        <br>
                         <div class="mb-3">
-                            <label for="productoId" class="form-label">ID Producto</label>
+                            <label for="cboCliente" class="form-label">Cliente</label>
+                            <select name="cboCliente" id="cboCliente" class="form-control"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoId" class="form-label">Producto</label>
+                            <select name="productoId" id="productoId" class="form-control"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="productoPrecio" class="form-label">Precio Unitario</label>
+                            <input type="number" class="form-control" id="productoPrecio" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="productoCantidad" class="form-label">Cantidad</label>
@@ -123,90 +109,21 @@
                             <label for="productoValor" class="form-label">Valor</label>
                             <input type="number" class="form-control" id="productoValor" readonly>
                         </div>
-                        <button  onclick="clickEnviar()" type="submit" class="btn btn-primary">Comprar</button> 
+                        <button type="submit" class="btn btn-primary">Comprar</button>
                     </form>
                 </div>
             </div>
         </div>
 
-
-        
-        <script type="text/javascript">
-        const cboCliente = document.getElementById('cboCliente');   
-        const listaClientes = await fetch("http://localhost:5000/api/clientes", { 
-            headers : {
-                "content_type": "application.json",
-                "Access.Control.Allow.Origin" : "*"
-            }, mode : 'cors'
-        }); 
-        listaClientes.then(async function(e){
-            console.log({e});
-            await e.json().then(async function(objeto){
-                //console.log(objeto);
-                //let itemStr = "";
-                objeto.forEach(element => {
-                    console.log({element});
-                    const item = document.createElement("item")
-                    itemStr+= "<option value='" + element.id + "'>" + element.razonSocial + "</option>";
-                });
-                cboCliente = innerHTML = itemStr
-            });
-        }).catch(function(error){
-            alert(error.message);
-        }).finally(function(e){
-            console.log({e});
-        });
-        function clickEnviar(e){
-        //console.log("Enviado");
-        //e.preventDefault();
-    
-
-        
-        const idCliente = document.getElementById("cboCliente").value;
-        const idProducto = document.getElementById("cboProducto").value;
-        const Cantidad = document.getElementById("txtCantidad").value;
-
-        const objEnvio = {
-            "id_cliente": idCliente,
-            "producto_id": idProducto,
-            "cantidad": Cantidad
-        };
-        console.log({objEnvio});
-
-        //EnvioFactura API Flask
-        fetch("http://localhost:5001/api/boleta", {
-            headers : {
-                "Content_Type": "application/json",
-                "Access_Control_Allow_Origin" : "*",
-            },
-            mode : 'cors',
-            method: 'POST',
-            body: JSON.stringify(objEnvio)
-        }).then(async function(e){
-            await e.json().then((obj) => {console.log({obj}) });
-        }).catch(function(error){alert(error.message) })
-        .finally(function(){
-            alert("Enviado con éxito");
-            // JSON.parse("{ 'id': 5, 'name': 'Alfonso' }");
-            // {
-            //     "id": 5,
-            //     "name": "Alfonso"
-            // }
-        });
-    }
-
-    const btnEnviar = document.getElementById('btnEnviar');
-    btnEnviar.addEventListener("click", clickEnviar);
-    </script>             
         <div class="container">
             <!-- Descripción 1 -->
             <div class="card">
-                <img src="img/1000_pavos.jpeg" alt="Tarjeta 1000 V-Bucks ">
+                <img src="img/1000_pavos.jpeg" alt="Tarjeta 1000 V-Bucks">
                 <div class="card-info">
-                    <h2>Tarjeta 1000 V-Bucks </h2>
-                    <p>Esta tarjeta te brinda acceso a un monto de $1000 V-Bucks para utilizar dentro del videojuego Fornite.</p>
+                    <h2>Tarjeta 1000 V-Bucks</h2>
+                    <p>Esta tarjeta te brinda acceso a un monto de 1000 V-Bucks para utilizar dentro del videojuego Fornite.</p>
                     <p><strong>Precio:</strong> CLP 8,500</p>
-                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
+                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC</p>
                 </div>
             </div>
 
@@ -215,45 +132,133 @@
                 <img src="img/2800_pavos.jpeg" alt="Tarjeta 2800 V-Bucks">
                 <div class="card-info">
                     <h2>Tarjeta 2800 V-Bucks</h2>
-                    <p>Esta tarjeta te brinda acceso a un monto de $2800 V-Bucks para utilizar dentro del videojuego Fornite.</p>
+                    <p>Esta tarjeta te brinda acceso a un monto de 2800 V-Bucks para utilizar dentro del videojuego Fornite.</p>
                     <p><strong>Precio:</strong> CLP 16,000</p>
-                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
+                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC</p>
                 </div>
             </div>
 
-            <!-- Descripción 3-->
+            <!-- Descripción 3 -->
             <div class="card">
                 <img src="img/5000_pavos.jpeg" alt="Tarjeta 5000 V-Bucks">
                 <div class="card-info">
                     <h2>Tarjeta 5000 V-Bucks</h2>
-                    <p>Esta tarjeta te brinda acceso a un monto de $5000 V-Bucks para utilizar dentro del videojuego Fornite.</p>
+                    <p>Esta tarjeta te brinda acceso a un monto de 5000 V-Bucks para utilizar dentro del videojuego Fornite.</p>
                     <p><strong>Precio:</strong> CLP 32,000</p>
-                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
+                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC</p>
                 </div>
             </div>
 
-            <!-- Descripción 4-->
+            <!-- Descripción 4 -->
             <div class="card">
                 <img src="img/13500_pavos.jpeg" alt="Tarjeta 13500 V-Bucks">
                 <div class="card-info">
                     <h2>Tarjeta 13500 V-Bucks</h2>
                     <p>Esta tarjeta te brinda acceso a un monto de 13500 V-Bucks para utilizar dentro del videojuego Fornite.</p>
                     <p><strong>Precio:</strong> CLP 65,000</p>
-                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC </p>
+                    <p><strong>Plataforma para Canjear:</strong> Xbox, PlayStation y PC</p>
                 </div>
             </div>
-
         </div>
     </main>
 
-      <!-- Footer -->  
-      <footer class="footer mt-auto py-3 bg-light">
+    <!-- Footer -->  
+    <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-          <span class="text-muted">J CODES  © <script>document.write(new Date().getFullYear())</script> </span>
+            <span class="text-muted">J CODES © <script>document.write(new Date().getFullYear())</script></span>
         </div>
-      </footer>
+    </footer>
+
+    <!-- Archivo JS Bootstrap 5 -->  
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        async function cargarClientes() {
+            const cboCliente = document.getElementById('cboCliente');
+            try {
+                const response = await fetch("http://localhost:5000/api/clientes", { 
+                    headers: { "Content-Type": "application/json" },
+                    mode: 'cors'
+                });
+                const listaClientes = await response.json();
+                let clienteOptions = '';
+                listaClientes.forEach(cliente => {
+                    clienteOptions += `<option value="${cliente.id}">${cliente.razonSocial}</option>`;
+                });
+                cboCliente.innerHTML = clienteOptions;
+            } catch (error) {
+                console.error('Error fetching clients:', error);
+            }
+        }
     
-           <!-- Archivo JS Bootstrap 5 -->  
-           <script src="js/bootstrap.bundle.min.js"></script>
+        async function cargarProductos() {
+            const productoSelect = document.getElementById('productoId');
+            try {
+                const response = await fetch("http://localhost:5002/api/productos", { 
+                    headers: { "Content-Type": "application/json" },
+                    mode: 'cors'
+                });
+                const productos = await response.json();
+                let productoOptions = '';
+                productos.forEach(producto => {
+                    productoOptions += `<option value="${producto.id}" data-precio="${producto.precio}">${producto.nombreProducto}</option>`;
+                });
+                productoSelect.innerHTML = productoOptions;
+                productoSelect.addEventListener('change', actualizarPrecioUnitario);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            }
+        }
+    
+        function actualizarPrecioUnitario() {
+            const productoSelect = document.getElementById('productoId');
+            const precioUnitario = productoSelect.selectedOptions[0].getAttribute('data-precio');
+            document.getElementById('productoPrecio').value = precioUnitario;
+            actualizarValor();
+        }
+    
+        function actualizarValor() {
+            const precioUnitario = document.getElementById('productoPrecio').value;
+            const cantidad = document.getElementById('productoCantidad').value;
+            if (precioUnitario && cantidad) {
+                document.getElementById('productoValor').value = precioUnitario * cantidad;
+            } else {
+                document.getElementById('productoValor').value = '';
+            }
+        }
+    
+        async function enviarFormulario(event) {
+            event.preventDefault();
+            const productoId = document.getElementById("productoId").value;
+            const cantidad = document.getElementById("productoCantidad").value;
+            const costoTotal = document.getElementById("productoValor").value;
+    
+            const objEnvio = {
+                "ProductoId": productoId,
+                "Cantidad": cantidad,
+                "CostoTotal": costoTotal
+            };
+    
+            try {
+                const response = await fetch("http://localhost:5002/api/stockproducto", {
+                    headers: { "Content-Type": "application/json" },
+                    mode: 'cors',
+                    method: 'POST',
+                    body: JSON.stringify(objEnvio)
+                });
+                const resultado = await response.json();
+                console.log('Respuesta de la API:', resultado);
+                alert("Stock actualizado con éxito");
+            } catch (error) {
+                console.error('Error enviando el formulario:', error);
+                alert("Hubo un error al actualizar el stock");
+            }
+        }
+    
+        document.getElementById('compraForm').addEventListener('submit', enviarFormulario);
+        document.addEventListener('DOMContentLoaded', () => {
+            cargarClientes();
+            cargarProductos();
+        });
+    </script>
 </body>
 </html>
