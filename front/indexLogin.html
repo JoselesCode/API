@@ -14,20 +14,21 @@
             <h3>Bienvenido</h3>
             <form method="post" action="" id="InicioSesion">
                 <div class="input-box">
-                    <input type="text" placeholder="Nombre" class="input-control" name="Nombre" id ='Nombre'>
+                    <input type="text" placeholder="Correo Electrónico" class="input-control" name="Email" id='Email'>
                 </div>
                 <div class="input-box">
-                    <input type="text" placeholder="Rut" class="input-control" name="Rut" id ='Rut'>
-                    <div class="input-link">
+                    <input type="text" placeholder="Contraseña" class="input-control" name="Contraseña" id='Password'>
+                </div>
                         <a href="recuperarC.html"class="gradient-text">¿Has olvidado tu contraseña?</a><!-- eticketa enlace para redirigir --> 
-                    </div>
-                </div>
-                <div class="input-box">
-                    <input type="text" placeholder="Direccion" class="input-control" name="Direccion" id='Direccion'>
-                </div>
+                <div>
+                
+                
                 <input type="submit" value="Iniciar sesion" class="btn">
                  
             </form>
+        
+            <p>¿No estás registrado? <a href="signup.html" class="gradient-text">Registrarse</a></p>
+        </div>
             <p> <a href="index.html" class="gradient-text"> Iniciar como invitado</a></p>
             <!--<p>¿No tienes una cuenta? <a href="signup.html" class="gradient-text"> Crear cuenta</a></p> eticketa enlace para redirigir (por ahora DESACTIVADA hasta hacer la conexion para validar datos en BD)--> 
 
@@ -40,36 +41,40 @@
     <script>
         document.getElementById('InicioSesion').addEventListener('submit', function (event) {
             event.preventDefault();
-            d
-            const nombreCliente = document.getElementById('Nombre').value;
-            const rutCliente = document.getElementById('Rut').value;
-            const direccionCliente = document.getElementById('Direccion').value;
-
-
-            const cliente = {
-                RazonSocial: nombreCliente,
-                Direccion: direccionCliente,
-                Rut: rutCliente
-            }
-
-            fetch('http://localhost:5000/api/Clientes', {
-                method: 'POST',
+            
+            const emailCliente = document.getElementById('Email').value;
+            const contraCliente = document.getElementById('Password').value;
+    
+            const url = `http://localhost:5000/api/Clientes?email=${encodeURIComponent(emailCliente)}`;
+    
+            fetch(url, {
+                method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(cliente)
+                }
             })
-                .then(response => response.json())
-                .then(data => {
-                    alert(' Sesión Iniciada');
-                    document.getElementById('InicioSesion').reset();
-                })
-                .catch(error => {
-                    console.error('Error al agregar producto:', error);
-                });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Usuario no encontrado o datos incorrectos');
+                }
+                return response.json();
+            })
+            .then(cliente => {
+                if (cliente) {
+                alert('Sesión Iniciada');
+                document.getElementById('InicioSesion').reset();
+                window.location.href = 'Paginaprueba.html';
+            } else {
+                throw new Error('Usuario no encontrado');
+            }
+            })
+            .catch(error => {
+                console.error('Error al iniciar sesión:', error);
+                alert('Error al iniciar sesión. Verifica los datos ingresados.');
+            });
         });
-        
     </script>
+    
     
 </body>
 </html>

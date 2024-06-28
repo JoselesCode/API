@@ -40,12 +40,24 @@ namespace AplicacionCliente.Controllers
                 return StatusCode(500, $"Error al conectar: {ex.Message}");
             }
         }
-
         // GET: api/Clientes
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Clientes>>> GetClientes()
         {
             return await _context.Clientes.ToListAsync();
+        }
+
+        [HttpGet("GetClienteByEmail")]
+        public IActionResult GetClienteByEmail([FromQuery] string email)
+        {
+            var cliente = _context.Clientes.FirstOrDefault(c => c.Email == email);
+
+            if (cliente == null)
+            {
+                return NotFound(); // Cliente no encontrado
+            }
+
+            return Ok(cliente); // Devuelve el cliente encontrado
         }
 
         // GET: api/Clientes/5

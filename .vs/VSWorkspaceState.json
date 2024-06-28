@@ -1,15 +1,14 @@
 {
   "ExpandedNodes": [
     "",
+    "\\AplicacionBodega.API",
     "\\AplicacionBodega.API\\AplicacionBodega",
-    "\\AplicacionCliente.API\\AplicacionCliente",
-    "\\AplicacionCliente.API\\AplicacionCliente\\Models",
     "\\AplicacionProducto.API",
     "\\AplicacionProducto.API\\AplicacionProducto",
     "\\AplicacionProducto.API\\AplicacionProducto\\Controllers",
     "\\AplicacionProducto.API\\AplicacionProducto\\Models",
     "\\front"
   ],
-  "SelectedNode": "\\AplicacionProducto.API\\AplicacionProducto.API.sln",
+  "SelectedNode": "\\AplicacionBodega.API\\AplicacionBodega.API.sln",
   "PreviewInSolutionExplorer": false
 }

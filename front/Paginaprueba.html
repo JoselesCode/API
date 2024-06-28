@@ -110,7 +110,17 @@
                             <input type="number" class="form-control" id="productoValor" readonly>
                         </div>
                         <button type="submit" class="btn btn-primary">Comprar</button>
-                    </form>                    
+                    </form>    
+                    
+                    <div id="boletaContainer" style="display:none;">
+                        <h3>Boleta</h3>
+                        <p><strong>Cliente:</strong> <span id="boletaCliente"></span></p>
+                        <p><strong>Email:</strong><span id="boletaEmail"></span></p>
+                        <p><strong>Producto:</strong> <span id="boletaProducto"></span></p>
+                        <p><strong>Cantidad:</strong> <span id="boletaCantidad"></span></p>
+                        <p><strong>Precio Unitario:</strong> <span id="boletaPrecio"></span></p>
+                        <p><strong>Total:</strong> <span id="boletaTotal"></span></p>
+                    </div>                
                 </div>
             </div>
         </div>
@@ -241,27 +251,50 @@
             console.log('Datos enviados a la API:', objEnvio);
     
             try {
-                const response = await fetch("http://localhost:5003/api/StockProducto", {
-                    headers: { 
-                        "Content-Type": "application/json"
-                    },
-                    mode: 'cors',
-                    method: 'POST',
-                    body: JSON.stringify(objEnvio)
-                });
-    
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    console.error('Error en la respuesta de la API:', errorData);
-                    throw new Error('Error al enviar los datos a la API');
-                }
-    
-                const resultado = await response.json();
-                console.log('Respuesta de la API:', resultado);
-                alert("Stock actualizado con éxito");
+            const responseStock = await fetch("http://localhost:5003/api/StockProducto", {
+                headers: { 
+                    "Content-Type": "application/json"
+                },
+                mode: 'cors',
+                method: 'POST',
+                body: JSON.stringify(objEnvio)
+            });
+
+            if (!responseStock.ok) {
+                const errorData = await responseStock.json();
+                console.error('Error en la respuesta de la API de Stock:', errorData);
+                throw new Error('Error al enviar los datos a la API de Stock');
+            }
+
+            const responseBoleta = await fetch("http://localhost:5002/api/Boleta", {
+                headers: { "Content-Type": "application/json"},
+                mode: 'cors',
+                method: 'POST',
+                body: JSON.stringify(objEnvio)
+            });
+
+            if (!responseBoleta.ok) {
+                const errorData = await responseBoleta.json();
+                console.error('Error en la respuesta de la API de Boleta:', errorData);
+                throw new Error('Error al enviar los datos a la API de Boleta');
+            }
+
+            const resultado = await responseBoleta.json();
+            console.log('Respuesta de la API:', resultado);
+
+            document.getElementById('boletaCliente').innerText = resultado.nombre_cliente;
+            document.getElementById('boletaEmail').innerText = resultado.email_cliente;
+            document.getElementById('boletaProducto').innerText = resultado.id_producto;
+            document.getElementById('boletaCantidad').innerText = resultado.cantidad;
+            document.getElementById('boletaPrecio').innerText = resultado.precio;
+            document.getElementById('boletaTotal').innerText = resultado.total_venta;
+
+            document.getElementById('boletaContainer').style.display = 'block';
+
+            alert("Boleta actualizada con éxito");
             } catch (error) {
                 console.error('Error enviando el formulario:', error);
-                alert("Hubo un error al actualizar el stock: No hay suficientes unidades.");
+                alert("Hubo un error al actualizar el stock; No hay suficientes unidades.");
             }
         }
     

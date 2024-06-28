@@ -1,3 +1,4 @@
+
 from flask import Flask, request
 from flask_restful import Api, Resource
 from flask_cors import CORS
@@ -7,63 +8,93 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-url_cliente = "http://localhost:5001/api/cliente"
+url_cliente = "http://localhost:5000/api/Clientes"
 url_producto = "http://localhost:5001/api/Productos"
-url_logistica = "http://localhost:5001/api/StockProducto"
+url_logistica = "http://localhost:5003/api/StockProducto"
 
-def obtener_cliente(id_cliente):
-    cliente_response = requests.get(f"{url_cliente}/{id_cliente}")
-    if cliente_response.status_code == 200:
+
+def obtener_cliente(id):
+    try:
+        cliente_response = requests.get(f"{url_cliente}/{id}")
+        cliente_response.raise_for_status()  # Lanza una excepción si hay un error en la respuesta
         return cliente_response.json()
-    else:
-        raise Exception("Error al obtener datos del cliente")
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Error al obtener datos del cliente: {str(e)}")
 
-def obtener_producto(producto_id):
-    producto_response = requests.get(f"{url_producto}/{producto_id}")
-    if producto_response.status_code == 200:
+def obtener_producto(id):
+    try:
+        producto_response = requests.get(f"{url_producto}/{id}")
+        producto_response.raise_for_status()
         return producto_response.json()
-    else:
-        raise Exception("Error al obtener datos del producto")
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Error al obtener datos del producto: {str(e)}")
 
-def verificar_stock(producto_id, cantidad):
-    logistica_response = requests.get(f"{url_logistica}/{producto_id}")
-    if logistica_response.status_code == 200:
-        logistica_json = logistica_response.json()
-        if logistica_json['stock'] >= cantidad:
-            return logistica_json
-        else:
-            raise Exception("Stock insuficiente")
-    else:
-        raise Exception("Error al obtener datos de logística")
+def obtener_stock(productoid):
+    try:
+        logistica_response = requests.get(f"{url_logistica}/{productoid}")
+        logistica_response.raise_for_status()
+        return logistica_response.json()
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Error al obtener datos de logística: {str(e)}")
+
 
 class Factura(Resource):
     def post(self):
+
+        #define objeto para la respuesta de la boleta
+        objRespuesta = {
+            "id_cliente" : 0,
+            "nombre_cliente": "",
+            "email_cliente": "",
+            "id_producto" : 0,
+            "cantidad": 0,
+            "precio": 0,
+            "total_venta" : 0,  
+        }
+
+        #capturas el formato json con los datos
+        json_data = request.get_json()
+ 
+        if 'ProductoId' not in json_data or 'CantidadComprada' not in json_data or 'id_cliente' not in json_data:
+            return {"error": "Datos incompletos"}, 400
+
+        #imprimes el resultado en el terminal
+
         try:
-            data = request.get_json()
-            cliente = obtener_cliente(data["id_cliente"])
-            producto = obtener_producto(data["producto_id"])
-            logistica = verificar_stock(data["producto_id"], data["cantidad"])
 
-            # Actualizar datos de la factura
-            total_venta = producto["precio"] * data["cantidad"]
-            factura = {
-                "id_cliente": cliente["id"],
-                "id_producto": data["producto_id"],
-                "cantidad": data["cantidad"],
-                "precio": producto["precio"],
-                "total_venta": total_venta,
-                "nombre_cliente": cliente["razonSocial"],
-                "direccion_cliente": cliente["direccion"]
-            }
+            producto_response = requests.get(f"{url_producto}/{json_data['ProductoId']}")
+            if producto_response.status_code == 200:
+                producto_json = producto_response.json()
+            else:
+                return {"error": "API de Productos no responde"}, 500
 
-            # Actualizar el stock en la API de Logística
-            requests.put(f"{url_logistica}/{data['producto_id']}", json={'stock': logistica['stock'] - data['cantidad']})
-
-            return factura
-
+            cliente_json = obtener_cliente(json_data["id_cliente"])
+            producto_json = obtener_producto(json_data["ProductoId"])
+            logistica_json = obtener_stock(json_data["CantidadComprada"])
+            #Verificar Stock
+            if logistica_json['CantidadComprada'] <= json_data['CantidadComprada']:
+            #Actualizar datos de boleta
+                objRespuesta["id_cliente"] = cliente_json["Id"]
+                objRespuesta["nombre_cliente"] = cliente_json["RazonSocial"] 
+                objRespuesta["email_cliente"] = cliente_json["Email"]
+                objRespuesta["id_producto"] = producto_json["Id"]
+                objRespuesta["cantidad"] = json_data["CantidadComprada"]
+                objRespuesta["precio"] = producto_json["Precio"]
+            #   objRespuesta["total_venta"] = logistica_json["CostoTotal"]
+                objRespuesta["total_venta"] = producto_json["Precio"] * json_data["CantidadComprada"]
+            
+            else:
+                return {"error" : "Stock insuficiente"}, 400
+        
         except Exception as e:
             return {"error": str(e)}, 500
 
-api.add_resource(Factura, "/api/boleta", methods=['POST'])
+        return objRespuesta
+    #   logistica = obtener_producto(data["cantidad"])
 
-app.run(debug=True, port=5002)
+
+
+api.add_resource(Factura, "/api/Boleta", methods=['POST'])
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5002)
