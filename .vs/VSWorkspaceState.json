@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\AplicacionCliente.API",
+    "\\AplicacionBodega.API\\AplicacionBodega",
     "\\AplicacionCliente.API\\AplicacionCliente",
-    "\\AplicacionCliente.API\\AplicacionCliente\\Controllers",
     "\\AplicacionCliente.API\\AplicacionCliente\\Models",
     "\\AplicacionProducto.API",
     "\\AplicacionProducto.API\\AplicacionProducto",

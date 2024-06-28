@@ -2,14 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using AplicacionBodega.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddDbContext<BodegaContext>(opt => opt.UseInMemoryDatabase("TodoList"));
+builder.Services.AddDbContext<BodegaContext>(opt => opt.UseSqlServer(connectionString));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient();
 
 //Establecer CORS.
 builder.Services.AddCors(options =>

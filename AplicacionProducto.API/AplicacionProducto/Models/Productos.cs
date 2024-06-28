@@ -16,6 +16,8 @@ namespace AplicacionProducto.Models
         public string? NombreProducto { get; set; }
         [Column("P_Precio")]
         public int Precio { get; set; }
+        [Column("P_Cantidad")]
+        public int Cantidad { get; set;}
 
     }
 }

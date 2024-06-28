@@ -103,14 +103,14 @@
                         </div>
                         <div class="mb-3">
                             <label for="productoCantidad" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="productoCantidad" required oninput="actualizarValor()">
+                            <input type="number" class="form-control" id="productoCantidad" required>
                         </div>
                         <div class="mb-3">
                             <label for="productoValor" class="form-label">Valor</label>
                             <input type="number" class="form-control" id="productoValor" readonly>
                         </div>
                         <button type="submit" class="btn btn-primary">Comprar</button>
-                    </form>
+                    </form>                    
                 </div>
             </div>
         </div>
@@ -175,7 +175,7 @@
         async function cargarClientes() {
             const cboCliente = document.getElementById('cboCliente');
             try {
-                const response = await fetch("http://localhost:5000/api/clientes", { 
+                const response = await fetch("http://localhost:5000/api/Clientes", { 
                     headers: { "Content-Type": "application/json" },
                     mode: 'cors'
                 });
@@ -193,7 +193,7 @@
         async function cargarProductos() {
             const productoSelect = document.getElementById('productoId');
             try {
-                const response = await fetch("http://localhost:5002/api/productos", { 
+                const response = await fetch("http://localhost:5001/api/Productos", { 
                     headers: { "Content-Type": "application/json" },
                     mode: 'cors'
                 });
@@ -217,9 +217,9 @@
         }
     
         function actualizarValor() {
-            const precioUnitario = document.getElementById('productoPrecio').value;
-            const cantidad = document.getElementById('productoCantidad').value;
-            if (precioUnitario && cantidad) {
+            const precioUnitario = parseFloat(document.getElementById('productoPrecio').value);
+            const cantidad = parseInt(document.getElementById('productoCantidad').value);
+            if (!isNaN(precioUnitario) && !isNaN(cantidad)) {
                 document.getElementById('productoValor').value = precioUnitario * cantidad;
             } else {
                 document.getElementById('productoValor').value = '';
@@ -229,36 +229,49 @@
         async function enviarFormulario(event) {
             event.preventDefault();
             const productoId = document.getElementById("productoId").value;
-            const cantidad = document.getElementById("productoCantidad").value;
+            const cantidadComprada = document.getElementById("productoCantidad").value;
             const costoTotal = document.getElementById("productoValor").value;
     
             const objEnvio = {
-                "ProductoId": productoId,
-                "Cantidad": cantidad,
-                "CostoTotal": costoTotal
+                "ProductoId": parseInt(productoId),
+                "CantidadComprada": parseInt(cantidadComprada),
+                "CostoTotal": parseInt(costoTotal)
             };
     
+            console.log('Datos enviados a la API:', objEnvio);
+    
             try {
-                const response = await fetch("http://localhost:5002/api/stockproducto", {
-                    headers: { "Content-Type": "application/json" },
+                const response = await fetch("http://localhost:5003/api/StockProducto", {
+                    headers: { 
+                        "Content-Type": "application/json"
+                    },
                     mode: 'cors',
                     method: 'POST',
                     body: JSON.stringify(objEnvio)
                 });
+    
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    console.error('Error en la respuesta de la API:', errorData);
+                    throw new Error('Error al enviar los datos a la API');
+                }
+    
                 const resultado = await response.json();
                 console.log('Respuesta de la API:', resultado);
                 alert("Stock actualizado con éxito");
             } catch (error) {
                 console.error('Error enviando el formulario:', error);
-                alert("Hubo un error al actualizar el stock");
+                alert("Hubo un error al actualizar el stock: No hay suficientes unidades.");
             }
         }
     
         document.getElementById('compraForm').addEventListener('submit', enviarFormulario);
+    
         document.addEventListener('DOMContentLoaded', () => {
             cargarClientes();
             cargarProductos();
+            document.getElementById('productoCantidad').addEventListener('input', actualizarValor);
         });
-    </script>
+    </script>    
 </body>
 </html>

@@ -61,8 +61,9 @@ namespace AplicacionProducto.Controllers
             return producto; // lista.FirstorDefault(x => x.id == id);
         }
 
+        //NO QUITAR SIGNOS DE COMENTARIO. INTERFERENCIA ENTRE METODOS PUT
         // PUT: api/Productos/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /*
         [HttpPut("{id}")]
         public async Task<IActionResult> PutProductos(int id, Productos producto)
         {
@@ -91,6 +92,23 @@ namespace AplicacionProducto.Controllers
 
             return NoContent();
         }
+        */
+
+        [HttpPut("{id}")]
+        public IActionResult UpdateProducto(int id, [FromBody] Productos updatedProducto)
+        {
+            var producto = _context.Productos.FirstOrDefault(p => p.Id == id);
+            if (producto == null)
+            {
+                return NotFound("Producto no encontrado.");
+            }
+
+            producto.Cantidad = updatedProducto.Cantidad;
+            _context.SaveChanges();
+
+            return Ok(producto);
+        }
+
 
         // POST: api/Productos
         [HttpPost]
