@@ -61,9 +61,8 @@
                 return;
             }
 
-            fetch('https://aplicacionclienteapi.azure-api.net/api/Clientes-clone', {
+            fetch('http://localhost:5000/api/Clientes', {
                 method: 'POST',
-                mode:"cors",
                 headers: {
                     'Content-Type': 'application/json',
                 },

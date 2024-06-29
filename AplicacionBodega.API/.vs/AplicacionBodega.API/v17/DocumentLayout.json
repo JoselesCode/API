@@ -22,15 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             },
             {
               "$type": "Document",
@@ -41,8 +37,7 @@
               "ToolTip": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\.editorconfig",
               "RelativeToolTip": ".editorconfig",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-06-29T11:16:58.875Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-29T11:16:58.875Z"
             },
             {
               "$type": "Document",
@@ -54,21 +49,24 @@
               "RelativeToolTip": "AplicacionBodega\\Controllers\\BodegaController.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-29T11:16:43.187Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-06-29T11:16:43.187Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AplicacionBodega",
+              "Title": "AplicacionBodega.csproj",
               "DocumentMoniker": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\AplicacionBodega.csproj",
               "RelativeDocumentMoniker": "AplicacionBodega\\AplicacionBodega.csproj",
               "ToolTip": "C:\\Users\\Adm\\Desktop\\API\\AplicacionBodega.API\\AplicacionBodega\\AplicacionBodega.csproj",
               "RelativeToolTip": "AplicacionBodega\\AplicacionBodega.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAANAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2024-06-29T11:16:35.937Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }
