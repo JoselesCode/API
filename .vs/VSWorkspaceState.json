@@ -3,6 +3,7 @@
     "",
     "\\AplicacionBodega.API",
     "\\AplicacionBodega.API\\AplicacionBodega",
+    "\\AplicacionCliente.API",
     "\\AplicacionProducto.API",
     "\\AplicacionProducto.API\\AplicacionProducto",
     "\\AplicacionProducto.API\\AplicacionProducto\\Controllers",

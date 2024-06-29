@@ -61,8 +61,9 @@
                 return;
             }
 
-            fetch('http://localhost:5000/api/Clientes', {
+            fetch('https://aplicacionclienteapi.azure-api.net/api/Clientes-clone', {
                 method: 'POST',
+                mode:"cors",
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -77,6 +78,7 @@
             .then(data => {
                 alert('Cliente agregado exitosamente');
                 console.log('Success:', data);
+                window.location.href = 'indexLogin.html';
             })
             .catch(error => {
                 console.error('Error al registrar cliente:', error);

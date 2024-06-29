@@ -45,7 +45,7 @@
             const emailCliente = document.getElementById('Email').value;
             const contraCliente = document.getElementById('Password').value;
     
-            const url = `http://localhost:5000/api/Clientes?email=${encodeURIComponent(emailCliente)}`;
+            const url = `https://aplicacionclienteapi.azure-api.net/api/Clientes/GetClienteByEmail?email=${encodeURIComponent(emailCliente)}`;
     
             fetch(url, {
                 method: 'GET',
@@ -59,19 +59,23 @@
                 }
                 return response.json();
             })
-            .then(cliente => {
-                if (cliente) {
+            .then(Clientes => {
+                console.log('Cliente recibido:', Clientes); // Log para ver el objeto cliente
+                console.log('Contraseña ingresada:', contraCliente)
+
+                if (Clientes && Clientes.password === contraCliente) {
                 alert('Sesión Iniciada');
                 document.getElementById('InicioSesion').reset();
-                window.location.href = 'Paginaprueba.html';
+                window.location.href = 'index.html';
             } else {
-                throw new Error('Usuario no encontrado');
+                throw new Error('Contraseña Incorrecta');
             }
             })
             .catch(error => {
                 console.error('Error al iniciar sesión:', error);
                 alert('Error al iniciar sesión. Verifica los datos ingresados.');
             });
+
         });
     </script>
     

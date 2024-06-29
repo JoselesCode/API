@@ -11,5 +11,6 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>AplicacionCliente.Models.ClientesContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+    <NameOfLastUsedPublishProfile>C:\Users\Adm\Desktop\API\AplicacionCliente.API\AplicacionCliente\Properties\PublishProfiles\AppTest - Web Deploy2.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

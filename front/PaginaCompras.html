@@ -251,7 +251,7 @@
             console.log('Datos enviados a la API:', objEnvio);
     
             try {
-            const responseStock = await fetch("http://localhost:5003/api/StockProducto", {
+                const responseStock = await fetch("http://localhost:5003/api/StockProducto", {
                 headers: { 
                     "Content-Type": "application/json"
                 },
@@ -292,10 +292,10 @@
             //document.getElementById('boletaContainer').style.display = 'block';
 
             //alert("Boleta actualizada con éxito");
-            //} catch (error) {
-            //    console.error('Error enviando el formulario:', error);
-            //    alert("Hubo un error al actualizar el stock; No hay suficientes unidades.");
-            //}
+            } catch (error) {
+                console.error('Error enviando el formulario:', error);
+                alert("Hubo un error al actualizar el stock; No hay suficientes unidades.");
+            }
         }
     
         document.getElementById('compraForm').addEventListener('submit', enviarFormulario);
