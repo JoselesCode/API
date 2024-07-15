@@ -3,12 +3,13 @@
     "",
     "\\AplicacionBodega.API",
     "\\AplicacionBodega.API\\AplicacionBodega",
+    "\\AplicacionBodega.API\\AplicacionBodega\\Controllers",
     "\\AplicacionCliente.API",
     "\\AplicacionProducto0.API",
     "\\AplicacionProducto0.API\\AplicacionProducto0",
     "\\AplicacionProducto0.API\\AplicacionProducto0\\Controllers",
     "\\front"
   ],
-  "SelectedNode": "\\AplicacionProducto0.API\\AplicacionProducto0\\Controllers\\ProductosController.cs",
+  "SelectedNode": "\\AplicacionBodega.API\\AplicacionBodega\\Controllers\\BodegaController.cs",
   "PreviewInSolutionExplorer": false
 }

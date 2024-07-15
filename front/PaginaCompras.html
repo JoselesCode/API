@@ -10,6 +10,34 @@
     <link rel="icon" href="favicon.ico">
     <style>
         /* Estilos personalizados */
+        .boleta-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+            font-family: Arial, sans-serif;
+        }
+
+        .boleta-card h3 {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .boleta-card p {
+            margin: 10px 0;
+        }
+
+        .boleta-card p strong {
+            display: inline-block;
+            width: 150px;
+        }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -88,7 +116,7 @@
                 <!-- Formulario de compra a la derecha -->
                 <div class="col-md-6">
                     <h2>Formulario de Compra</h2>
-                    <form id="compraForm">
+                    <form class="boleta-card" id="compraForm">
                         <div class="mb-3">
                             <label for="cboCliente" class="form-label">Cliente</label>
                             <label for="cboCliente"></label>
@@ -100,29 +128,29 @@
                         </div>
                         <div class="mb-3">
                             <label for="productoPrecio" class="form-label">Precio Unitario</label>
-                            <input type="number" class="form-control" id="productoPrecio">
+                            <input type="number" class="form-control" id="productoPrecio" readonly>
                         </div>
                         <div class="mb-3">
                             <label for="productoCantidad" class="form-label">Cantidad</label>
-                            <input type="number" class="form-control" id="productoCantidad" required>
+                            <input type="number" class="form-control" id="productoCantidad" size="2" min="0" max="100" required>
                         </div>
                         <div class="mb-3">
                             <label for="productoValor" class="form-label">Valor</label>
-                            <input type="number" class="form-control" id="productoValor">
+                            <input type="number" class="form-control" id="productoValor" readonly>
                         </div>
                         <button type="submit" class="btn btn-primary">Comprar</button>
                     </form>    
                     
-                    <div id="boletaContainer" style="display:none;">
+                    <div id="boletaContainer" class="boleta-card" style="display:none;">
                         <h3>Boleta</h3>
                         <p><strong>Cliente:</strong> <span id="boletaCliente"></span></p>
-                        <p><strong>Email:</strong><span id="boletaEmail"></span></p>
+                        <p><strong>Email:</strong> <span id="boletaEmail"></span></p>
                         <p><strong>Id del Producto:</strong> <span id="boletaIdProducto"></span></p>
                         <p><strong>Producto:</strong> <span id="boletaProducto"></span></p>
                         <p><strong>Cantidad:</strong> <span id="boletaCantidad"></span></p>
                         <p><strong>Precio Unitario:</strong> <span id="boletaPrecio"></span></p>
                         <p><strong>Total:</strong> <span id="boletaTotal"></span></p>
-                    </div>                
+                    </div>                                   
                 </div>
             </div>
         </div>
@@ -275,7 +303,7 @@
 
             const responseBoleta = await fetch("http://localhost:5002/api/Boleta", {
                headers: { "Content-Type": "application/json"},
-               mode: 'no-cors',
+               mode: 'cors',
                method: 'POST',
                body: JSON.stringify(objEnvio) ////////////////////****************//////////////////////
             });

@@ -55,7 +55,8 @@ class Factura(Resource):
 
         #capturas el formato json con los datos
         json_data = request.get_json()
- 
+        print("datos recibidos:", json_data)
+
         if 'ClienteId' not in json_data or 'ProductoId' not in json_data or 'CantidadComprada' not in json_data or 'CostoTotal' not in json_data:
             return {"error": "Datos incompletos"}, 400
 
@@ -67,18 +68,22 @@ class Factura(Resource):
             cliente_json = obtener_cliente(json_data["ClienteId"])
             producto_json = obtener_producto(json_data["ProductoId"])
             logistica_json = obtener_stock(json_data["ProductoId"])
+
+            print("Datos del cliente:", cliente_json)
+            print("Datos del producto:", producto_json)
+            print("Datos de logística:", logistica_json)
             #Verificar Stock
-            if logistica_json['CantidadComprada'] >= json_data['CantidadComprada']:
+            if logistica_json['cantidadComprada'] >= json_data['CantidadComprada']:
             #Actualizar datos de boleta
-                objRespuesta["id_cliente"] = cliente_json["Id"]
-                objRespuesta["nombre_cliente"] = cliente_json["RazonSocial"] 
-                objRespuesta["email_cliente"] = cliente_json["Email"]
-                objRespuesta["id_producto"] = producto_json["Id"]
-                objRespuesta["nombre_producto"] = producto_json["Nombre"]
+                objRespuesta["id_cliente"] = cliente_json["id"]
+                objRespuesta["nombre_cliente"] = cliente_json["razonSocial"] 
+                objRespuesta["email_cliente"] = cliente_json["email"]
+                objRespuesta["id_producto"] = producto_json["id"]
+                objRespuesta["nombre_producto"] = producto_json["nombreProducto"]
                 objRespuesta["cantidad"] = json_data["CantidadComprada"]
-                objRespuesta["precio"] = producto_json["Precio"]
+                objRespuesta["precio"] = producto_json["precio"]
             #   objRespuesta["total_venta"] = logistica_json["CostoTotal"]
-                objRespuesta["total_venta"] = producto_json["Precio"] * json_data["CantidadComprada"]
+                objRespuesta["total_venta"] = producto_json["precio"] * json_data["CantidadComprada"]
             
             else:
                 return {"error" : "Stock insuficiente"}, 400
