@@ -8,9 +8,9 @@ app = Flask(__name__)
 api = Api(app)
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-url_cliente = "http://localhost:5000/api/Clientes"
-url_producto = "http://localhost:5001/api/Productos"
-url_logistica = "http://localhost:5003/api/StockProducto"
+url_cliente = "https://aplicacioncliente.azurewebsites.net/api/Clientes"
+url_producto = "https://aplicacionproducto.azurewebsites.net/api/Productos"
+url_logistica = "https://aplicacionbodega0.azurewebsites.net/api/StockProducto"
 
 
 def obtener_cliente(id):
@@ -29,9 +29,9 @@ def obtener_producto(id):
     except requests.exceptions.RequestException as e:
         raise Exception(f"Error al obtener datos del producto: {str(e)}")
 
-def obtener_stock(productoid):
+def obtener_stock(productoId):
     try:
-        logistica_response = requests.get(f"{url_logistica}/{productoid}")
+        logistica_response = requests.get(f"{url_logistica}/{productoId}")
         logistica_response.raise_for_status()
         return logistica_response.json()
     except requests.exceptions.RequestException as e:
@@ -47,6 +47,7 @@ class Factura(Resource):
             "nombre_cliente": "",
             "email_cliente": "",
             "id_producto" : 0,
+            "nombre_producto" : "",
             "cantidad": 0,
             "precio": 0,
             "total_venta" : 0,  
@@ -55,29 +56,25 @@ class Factura(Resource):
         #capturas el formato json con los datos
         json_data = request.get_json()
  
-        if 'ProductoId' not in json_data or 'CantidadComprada' not in json_data or 'id_cliente' not in json_data:
+        if 'ClienteId' not in json_data or 'ProductoId' not in json_data or 'CantidadComprada' not in json_data or 'CostoTotal' not in json_data:
             return {"error": "Datos incompletos"}, 400
 
         #imprimes el resultado en el terminal
 
+    
         try:
-
-            producto_response = requests.get(f"{url_producto}/{json_data['ProductoId']}")
-            if producto_response.status_code == 200:
-                producto_json = producto_response.json()
-            else:
-                return {"error": "API de Productos no responde"}, 500
-
-            cliente_json = obtener_cliente(json_data["id_cliente"])
+            
+            cliente_json = obtener_cliente(json_data["ClienteId"])
             producto_json = obtener_producto(json_data["ProductoId"])
-            logistica_json = obtener_stock(json_data["CantidadComprada"])
+            logistica_json = obtener_stock(json_data["ProductoId"])
             #Verificar Stock
-            if logistica_json['CantidadComprada'] <= json_data['CantidadComprada']:
+            if logistica_json['CantidadComprada'] >= json_data['CantidadComprada']:
             #Actualizar datos de boleta
                 objRespuesta["id_cliente"] = cliente_json["Id"]
                 objRespuesta["nombre_cliente"] = cliente_json["RazonSocial"] 
                 objRespuesta["email_cliente"] = cliente_json["Email"]
                 objRespuesta["id_producto"] = producto_json["Id"]
+                objRespuesta["nombre_producto"] = producto_json["Nombre"]
                 objRespuesta["cantidad"] = json_data["CantidadComprada"]
                 objRespuesta["precio"] = producto_json["Precio"]
             #   objRespuesta["total_venta"] = logistica_json["CostoTotal"]
@@ -85,9 +82,9 @@ class Factura(Resource):
             
             else:
                 return {"error" : "Stock insuficiente"}, 400
-        
+    
         except Exception as e:
-            return {"error": str(e)}, 500
+           return {"error": str(e)}, 500
 
         return objRespuesta
     #   logistica = obtener_producto(data["cantidad"])

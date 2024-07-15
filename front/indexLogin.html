@@ -45,7 +45,7 @@
             const emailCliente = document.getElementById('Email').value;
             const contraCliente = document.getElementById('Password').value;
     
-            const url = `https://aplicacionclienteapi.azure-api.net/api/Clientes/GetClienteByEmail?email=${encodeURIComponent(emailCliente)}`;
+            const url = `https://aplicacioncliente.azurewebsites.net/api/Clientes/GetClienteByEmail?email=${encodeURIComponent(emailCliente)}`;
     
             fetch(url, {
                 method: 'GET',

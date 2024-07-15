@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "AplicacionBodega, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "title": "AplicacionBodega0, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
     "version": "1.0"
   },
   "paths": {
@@ -17,7 +17,7 @@
         }
       }
     },
-    "/api/StockProducto": {
+    "/api/StockProducto/Add": {
       "post": {
         "tags": [
           "Bodega"
@@ -70,7 +70,9 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/StockProducto/Modificar/{productoId}": {
       "put": {
         "tags": [
           "Bodega"
@@ -115,7 +117,7 @@
         }
       }
     },
-    "/api/Productos": {
+    "/api/Productos/ObtenerProductos": {
       "get": {
         "tags": [
           "Productos"
@@ -136,7 +138,71 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Productos/{id}": {
+      "get": {
+        "tags": [
+          "Productos"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Productos"
+            }
+          }
+        }
+      }
+    },
+    "/api/Productos/Modificar/{id}": {
+      "put": {
+        "tags": [
+          "Productos"
+        ],
+        "consumes": [
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Productos"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Productos": {
       "post": {
         "tags": [
           "Productos"
@@ -170,65 +236,7 @@
         }
       }
     },
-    "/api/Productos/{id}": {
-      "get": {
-        "tags": [
-          "Productos"
-        ],
-        "produces": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "schema": {
-              "$ref": "#/definitions/Productos"
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Productos"
-        ],
-        "consumes": [
-          "application/json",
-          "text/json",
-          "application/*+json"
-        ],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "id",
-            "required": true,
-            "type": "integer",
-            "format": "int32"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/Productos"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
+    "/api/Productos/Borrar/{id}": {
       "delete": {
         "tags": [
           "Productos"

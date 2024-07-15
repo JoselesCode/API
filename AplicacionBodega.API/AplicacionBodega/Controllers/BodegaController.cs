@@ -1,11 +1,11 @@
-﻿using AplicacionBodega.Models;
+﻿using AplicacionBodega0.DTO;
+using AplicacionBodega0.Models;
+using AplicacionProducto0.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using AplicacionBodega.DTOs;
 using Microsoft.Data.SqlClient;
-using AplicacionProducto.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace AplicacionBodega.Controllers
+namespace AplicacionBodega0.Controllers
 {
     [Route("api/StockProducto")]
     [ApiController]
@@ -27,25 +27,26 @@ namespace AplicacionBodega.Controllers
         public IActionResult TestConnection()
         {
             var connectionString = _configuration.GetConnectionString("DefaultConnection");
-
             try
             {
                 using var connection = new SqlConnection(connectionString);
-                connection.Open();
-                return Ok("Conexión exitosa");
+                {
+                    connection.Open();
+                    return Ok("Conexión Exitosa.");
+                }
             }
             catch (Exception ex)
             {
-                return StatusCode(500, $"Error al conectar: {ex.Message}");
+                return BadRequest($"Error connecting: {ex.Message}");
             }
         }
 
         //Método para controlar el stock solicitado
-        [HttpPost]
+        [HttpPost("Add")]
         public async Task<IActionResult> RegistrarCompra([FromBody] StockProducto stockProducto)
         {
             // Obtener el producto desde la base de datos
-            var productoResponse = await _httpClient.GetAsync($"http://localhost:5001/api/Productos/{stockProducto.ProductoId}");
+            var productoResponse = await _httpClient.GetAsync($"https://aplicacionproducto.azurewebsites.net/api/Productos/{stockProducto.ProductoId}");
             if (!productoResponse.IsSuccessStatusCode)
             {
                 return NotFound("Producto no encontrado.");
@@ -65,7 +66,7 @@ namespace AplicacionBodega.Controllers
 
             // Actualizar la cantidad de stock del producto
             producto.Cantidad -= stockProducto.CantidadComprada;
-            var updateResponse = await _httpClient.PutAsJsonAsync($"http://localhost:5001/api/Productos/{producto.Id}", producto);
+            var updateResponse = await _httpClient.PutAsJsonAsync($"https://aplicacionproducto.azurewebsites.net/api/Productos/Modificar/{producto.Id}", producto);
             if (!updateResponse.IsSuccessStatusCode)
             {
                 return StatusCode((int)updateResponse.StatusCode, "Error al actualizar el producto.");
@@ -75,19 +76,31 @@ namespace AplicacionBodega.Controllers
             stockProducto.CostoTotal = stockProducto.CantidadComprada * producto.Precio;
 
             // Registrar la compra en la base de datos de stock
-            _context.StockProductos.Add(stockProducto);
+            _context.StockProducto.Add(stockProducto);
             await _context.SaveChangesAsync();
 
             return Ok(stockProducto);
         }
-    
 
+        [HttpGet("ObtenerCompras")]
+        public async Task<ActionResult<IEnumerable<StockProducto>>> GetStockProducto()
+        {
+            try
+            {
+                var compras = await _context.StockProducto.ToListAsync();
+                return Ok(compras);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
 
-    // GET: api/StockProducto/5
-    [HttpGet("{productoId}")]
+            // GET: api/StockProducto/5
+            [HttpGet("{productoId}")]
         public async Task<ActionResult<StockProducto>> GetStockProducto(int productoId)
         {
-            var stock = await _context.StockProductos.FirstOrDefaultAsync(s => s.ProductoId == productoId);
+            var stock = await _context.StockProducto.FirstOrDefaultAsync(s => s.ProductoId == productoId);
 
             if (stock == null)
             {
@@ -98,7 +111,7 @@ namespace AplicacionBodega.Controllers
         }
 
         // PUT: api/StockProducto/5
-        [HttpPut("{productoId}")]
+        [HttpPut("Modificar/{productoId}")]
         public async Task<IActionResult> PutStockProducto(int productoId, [FromBody] StockProductoUpdateDTO UpdateDto)
         {
             if (productoId != UpdateDto.ProductoId)
@@ -106,7 +119,7 @@ namespace AplicacionBodega.Controllers
                 return BadRequest("ProductoId en la URL no coincide con el ProductoId en el cuerpo de la solicitud");
             }
 
-            var stock = await _context.StockProductos.FirstOrDefaultAsync(s => s.ProductoId == productoId);
+            var stock = await _context.StockProducto.FirstOrDefaultAsync(s => s.ProductoId == productoId);
 
             if (stock == null)
             {
@@ -140,7 +153,7 @@ namespace AplicacionBodega.Controllers
         [HttpPost]
         public async Task<ActionResult<StockProducto>> PostStockProducto(StockProducto stockproducto)
         {
-            _context.StockProductos.Add(stockproducto);
+            _context.StockProducto.Add(stockproducto);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetStockProducto", new { productoid = stockproducto.ProductoId }, stockproducto);
@@ -148,7 +161,7 @@ namespace AplicacionBodega.Controllers
         */
         private bool StockProductoExists(int productoId)
         {
-            return _context.StockProductos.Any(e => e.ProductoId == productoId);
+            return _context.StockProducto.Any(e => e.ProductoId == productoId);
         }
     }
 

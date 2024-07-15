@@ -1,7 +1,0 @@
-C:\Users\Adm\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\netcoreapp6.0\AplicacionProducto.csproj.AssemblyReference.cache
-C:\Users\Adm\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\netcoreapp6.0\AplicacionProducto.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Adm\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\netcoreapp6.0\AplicacionProducto.AssemblyInfoInputs.cache
-C:\Users\Adm\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\netcoreapp6.0\AplicacionProducto.AssemblyInfo.cs
-C:\Users\Adm\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\netcoreapp6.0\AplicacionProducto.csproj.CoreCompileInputs.cache
-C:\Users\Adm\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\netcoreapp6.0\AplicacionProducto.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Adm\Desktop\API\AplicacionProducto.API\AplicacionProducto\obj\Debug\netcoreapp6.0\AplicacionProducto.sourcelink.json

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AplicacionCliente.Models;
 using Microsoft.Data.SqlClient;
@@ -41,7 +36,7 @@ namespace AplicacionCliente.Controllers
             }
         }
         // GET: api/Clientes
-        [HttpGet]
+        [HttpGet("ObtenerUsuarios")]
         public async Task<ActionResult<IEnumerable<Clientes>>> GetClientes()
         {
             return await _context.Clientes.ToListAsync();

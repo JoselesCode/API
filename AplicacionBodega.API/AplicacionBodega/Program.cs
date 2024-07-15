@@ -1,5 +1,5 @@
+using AplicacionBodega0.Models;
 using Microsoft.EntityFrameworkCore;
-using AplicacionBodega.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

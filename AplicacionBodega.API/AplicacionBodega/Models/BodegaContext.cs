@@ -1,12 +1,11 @@
-﻿using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace AplicacionBodega.Models
+namespace AplicacionBodega0.Models
 {
     public class BodegaContext : DbContext
     {
         public BodegaContext(DbContextOptions<BodegaContext> options) : base(options) { }
 
-        public DbSet<StockProducto> StockProductos { get; set; }
+        public DbSet<StockProducto> StockProducto { get; set; }
     }
 }

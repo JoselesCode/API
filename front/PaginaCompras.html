@@ -91,6 +91,7 @@
                     <form id="compraForm">
                         <div class="mb-3">
                             <label for="cboCliente" class="form-label">Cliente</label>
+                            <label for="cboCliente"></label>
                             <select name="cboCliente" id="cboCliente" class="form-control"></select>
                         </div>
                         <div class="mb-3">
@@ -99,7 +100,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="productoPrecio" class="form-label">Precio Unitario</label>
-                            <input type="number" class="form-control" id="productoPrecio" readonly>
+                            <input type="number" class="form-control" id="productoPrecio">
                         </div>
                         <div class="mb-3">
                             <label for="productoCantidad" class="form-label">Cantidad</label>
@@ -107,7 +108,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="productoValor" class="form-label">Valor</label>
-                            <input type="number" class="form-control" id="productoValor" readonly>
+                            <input type="number" class="form-control" id="productoValor">
                         </div>
                         <button type="submit" class="btn btn-primary">Comprar</button>
                     </form>    
@@ -116,6 +117,7 @@
                         <h3>Boleta</h3>
                         <p><strong>Cliente:</strong> <span id="boletaCliente"></span></p>
                         <p><strong>Email:</strong><span id="boletaEmail"></span></p>
+                        <p><strong>Id del Producto:</strong> <span id="boletaIdProducto"></span></p>
                         <p><strong>Producto:</strong> <span id="boletaProducto"></span></p>
                         <p><strong>Cantidad:</strong> <span id="boletaCantidad"></span></p>
                         <p><strong>Precio Unitario:</strong> <span id="boletaPrecio"></span></p>
@@ -125,6 +127,7 @@
             </div>
         </div>
 
+<!-- Cartas de muestra de productos: -->
         <div class="container">
             <!-- Descripción 1 -->
             <div class="card">
@@ -172,20 +175,20 @@
         </div>
     </main>
 
-    <!-- Footer -->  
+<!-- Footer -->  
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <span class="text-muted">J CODES © <script>document.write(new Date().getFullYear())</script></span>
         </div>
     </footer>
 
-    <!-- Archivo JS Bootstrap 5 -->  
+<!-- Archivo JS Bootstrap 5 -->  
     <script src="js/bootstrap.bundle.min.js"></script>
     <script>
         async function cargarClientes() {
             const cboCliente = document.getElementById('cboCliente');
             try {
-                const response = await fetch("http://localhost:5000/api/Clientes", { 
+                const response = await fetch("https://aplicacioncliente.azurewebsites.net/api/Clientes/ObtenerUsuarios", { 
                     headers: { "Content-Type": "application/json" },
                     mode: 'cors'
                 });
@@ -196,14 +199,14 @@
                 });
                 cboCliente.innerHTML = clienteOptions;
             } catch (error) {
-                console.error('Error fetching clients:', error);
+                console.error('Error fetching clientes 1:', error);
             }
         }
     
         async function cargarProductos() {
             const productoSelect = document.getElementById('productoId');
             try {
-                const response = await fetch("http://localhost:5001/api/Productos", { 
+                const response = await fetch("https://aplicacionproducto.azurewebsites.net/api/Productos/ObtenerProductos", { 
                     headers: { "Content-Type": "application/json" },
                     mode: 'cors'
                 });
@@ -238,11 +241,13 @@
     
         async function enviarFormulario(event) {
             event.preventDefault();
+            const clienteId = document.getElementById("cboCliente").value;
             const productoId = document.getElementById("productoId").value;
             const cantidadComprada = document.getElementById("productoCantidad").value;
             const costoTotal = document.getElementById("productoValor").value;
     
             const objEnvio = {
+                "ClienteId": parseInt(clienteId),
                 "ProductoId": parseInt(productoId),
                 "CantidadComprada": parseInt(cantidadComprada),
                 "CostoTotal": parseInt(costoTotal)
@@ -251,47 +256,50 @@
             console.log('Datos enviados a la API:', objEnvio);
     
             try {
-                const responseStock = await fetch("http://localhost:5003/api/StockProducto", {
-                headers: { 
-                    "Content-Type": "application/json"
-                },
-                mode: 'cors',
-                method: 'POST',
-                body: JSON.stringify(objEnvio)
+            //     const responseStock = await fetch("https://aplicacionbodega0.azurewebsites.net/api/StockProducto/Add", {
+            //     headers: { 
+            //         "Content-Type": "application/json"
+            //     },
+            //     mode: 'cors',
+            //     method: 'POST',
+            //     body: JSON.stringify(objEnvio)
+            // });
+
+            // if (!responseStock.ok) {
+            //     const errorData = await responseStock.json();
+            //     console.error('Error en la respuesta de la API de Stock:', errorData);
+            //     throw new Error('Error al enviar los datos a la API de Stock');
+            // }
+
+//PARA QUITAR TODOS LOS COMENTARIOS DE LAS LINEAS, SELECCIONALAS TODAS Y PRESIONA CTRL+K Y LUEGO CTRL+U
+
+            const responseBoleta = await fetch("http://localhost:5002/api/Boleta", {
+               headers: { "Content-Type": "application/json"},
+               mode: 'no-cors',
+               method: 'POST',
+               body: JSON.stringify(objEnvio) ////////////////////****************//////////////////////
             });
 
-            if (!responseStock.ok) {
-                const errorData = await responseStock.json();
-                console.error('Error en la respuesta de la API de Stock:', errorData);
-                throw new Error('Error al enviar los datos a la API de Stock');
+            if (!responseBoleta.ok) {
+               const errorData = await responseBoleta.json();
+               console.error('Error en la respuesta de la API de Boleta:', errorData);
+               throw new Error('Error al enviar los datos a la API de Boleta');
             }
 
-            //const responseBoleta = await fetch("http://localhost:5002/api/Boleta", {
-            //    headers: { "Content-Type": "application/json"},
-            //    mode: 'cors',
-            //    method: 'POST',
-            //    body: JSON.stringify(objEnvio)
-            //});
+            const resultado = await responseBoleta.json();
+            console.log('Respuesta de la API Boleta:', resultado);
 
-            //if (!responseBoleta.ok) {
-            //    const errorData = await responseBoleta.json();
-            //    console.error('Error en la respuesta de la API de Boleta:', errorData);
-            //    throw new Error('Error al enviar los datos a la API de Boleta');
-            //}
+            document.getElementById('boletaCliente').innerText = resultado.nombre_cliente;
+            document.getElementById('boletaEmail').innerText = resultado.email_cliente;
+            document.getElementById('boletaIdProducto').innerText = resultado.id_producto
+            document.getElementById('boletaProducto').innerText = resultado.nombre_producto;
+            document.getElementById('boletaCantidad').innerText = resultado.cantidad;
+            document.getElementById('boletaPrecio').innerText = resultado.precio;
+            document.getElementById('boletaTotal').innerText = resultado.total_venta;
 
-            //const resultado = await responseBoleta.json();
-            //console.log('Respuesta de la API:', resultado);
+            document.getElementById('boletaContainer').style.display = 'block';
 
-            //document.getElementById('boletaCliente').innerText = resultado.nombre_cliente;
-            //document.getElementById('boletaEmail').innerText = resultado.email_cliente;
-            //document.getElementById('boletaProducto').innerText = resultado.id_producto;
-            //document.getElementById('boletaCantidad').innerText = resultado.cantidad;
-            //document.getElementById('boletaPrecio').innerText = resultado.precio;
-            //document.getElementById('boletaTotal').innerText = resultado.total_venta;
-
-            //document.getElementById('boletaContainer').style.display = 'block';
-
-            //alert("Boleta actualizada con éxito");
+            alert("Boleta actualizada con éxito");
             } catch (error) {
                 console.error('Error enviando el formulario:', error);
                 alert("Hubo un error al actualizar el stock; No hay suficientes unidades.");

@@ -61,11 +61,12 @@
                 return;
             }
 
-            fetch('http://localhost:5000/api/Clientes', {
+            fetch('https://aplicacioncliente.azurewebsites.net/api/Clientes/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                mode:"cors",
                 body: JSON.stringify(cliente)
             })
             .then(response => {
